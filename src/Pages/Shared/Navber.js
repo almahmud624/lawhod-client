@@ -8,6 +8,7 @@ const Navber = () => {
   const navItems = (
     <>
       <Link to="/home">Home</Link>
+      <Link to="/practice-areas">Practice Area</Link>
       <Link to="/blog">Blog</Link>
       <Link to="/contact">Contact Us</Link>
     </>

@@ -1,11 +1,12 @@
 import React from "react";
 import Header from "../Header/Header";
+import PracticeAreas from "../PracticeAreas/PracticeAreas";
 
 const Home = () => {
   return (
     <div>
       <Header />
-      <h1>Welcome home child</h1>
+      <PracticeAreas />
     </div>
   );
 };
