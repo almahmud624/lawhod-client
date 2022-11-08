@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PracticeArea = () => {
   return (
@@ -34,9 +35,12 @@ const PracticeArea = () => {
                 (based on 234 ratings)
               </span>
             </div> */}
-            <button className="bg-[#624F82] text-[#A3C7D6] px-4 py-2 border border-[#A3C7D6] mt-3 rounded-sm font-semibold">
+            <Link
+              to="/practice-details"
+              className="bg-[#624F82] text-[#A3C7D6] px-4 py-2 border border-[#A3C7D6] mt-3 rounded-sm font-semibold"
+            >
               Know More
-            </button>
+            </Link>
           </div>
         </div>
       </div>

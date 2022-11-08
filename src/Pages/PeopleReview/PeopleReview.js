@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Rate, Form, Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
+import { DataContext } from "../../Context/DataProvider";
+import moment from "moment";
 
 const PeopleReview = () => {
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
+  const [rating, setRating] = useState(0);
+  const { reviews, setReviews } = useContext(DataContext);
   const onFinish = (values) => {
-    console.log("Success:", values);
+    values["id"] = parseInt(Math.random() * 5000);
+    values["rating"] = rating;
+    values["date"] = `${moment().format("LL")}, ${moment().format("LT")}`;
+    setReviews([...reviews, values]);
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-  const [value, setValue] = useState(3);
-  console.log(value);
+  console.log(reviews);
 
   return (
     <div>
@@ -73,10 +79,10 @@ const PeopleReview = () => {
                       </Form.Item>
                       <div className="rating mb-3">
                         <span>
-                          <Rate allowHalf onChange={setValue} value={value} />
-                          {value ? (
+                          <Rate allowHalf onChange={setRating} value={rating} />
+                          {rating ? (
                             <span className="ant-rate-text font-semibold">
-                              {value}
+                              {rating}
                             </span>
                           ) : (
                             ""
