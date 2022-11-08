@@ -9,7 +9,7 @@ const PeopleReview = () => {
   const [rating, setRating] = useState(0);
   const { reviews, setReviews } = useContext(DataContext);
   const onFinish = (values) => {
-    values["id"] = parseInt(Math.random() * 5000);
+    values["_id"] = parseInt(Math.random() * 5000);
     values["rating"] = rating;
     values["date"] = `${moment().format("LL")}, ${moment().format("LT")}`;
     setReviews([...reviews, values]);

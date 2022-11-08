@@ -10,6 +10,7 @@ const AddPracticeArea = () => {
     setRating(value);
   };
   const onFinish = (values) => {
+    values["_id"] = parseInt(Math.random() * 5000);
     values["rating"] = rating;
     const newPracticeAreas = [...practiceAreas, values];
     setPracticeAreas(newPracticeAreas);
