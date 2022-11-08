@@ -9,6 +9,8 @@ const Navber = () => {
     <>
       <Link to="/home">Home</Link>
       <Link to="/practice-areas">Practice Area</Link>
+      <Link to="/add-practice">Add Practice</Link>
+      <Link to="/my-review">My Reviews</Link>
       <Link to="/blog">Blog</Link>
       <Link to="/contact">Contact Us</Link>
     </>
