@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const PracticeArea = ({ practiceArea }) => {
-  const { _id, name, imgURL, shortDescription, fee } = practiceArea;
+  const { _id, practiceName, imgURL, shortDescription, fee } = practiceArea;
 
   return (
     <div>
@@ -16,10 +16,16 @@ const PracticeArea = ({ practiceArea }) => {
         <div className="px-4 w-full   cursor-pointer transition-all duration-500">
           <div className="bg-[#3F3B6C] text-[#A3C7D6] p-6 rounded-lg shadow-lg">
             <h4 className="mt-1 text-xl font-semibold capitalize leading-tight text-[#A3C7D6]">
-              {name}
+              {practiceName}
             </h4>
             <div className="description">
-              <span>{shortDescription}</span>
+              <span>
+                {shortDescription.length > 100 ? (
+                  <>{shortDescription.slice(0, 100)}...</>
+                ) : (
+                  shortDescription
+                )}
+              </span>
             </div>
             <div className="mt-1 mb-5 text-lg">
               ${fee}

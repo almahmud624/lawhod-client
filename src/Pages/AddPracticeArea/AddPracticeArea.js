@@ -45,7 +45,7 @@ const AddPracticeArea = () => {
           <div>
             <Form.Item
               label="Preatice Area Name"
-              name="name"
+              name="practiceName"
               className="mb-0 p-0"
               rules={[
                 {
@@ -55,7 +55,7 @@ const AddPracticeArea = () => {
               ]}
             >
               <input
-                id="name"
+                id="practiceName"
                 type="text"
                 class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-600 rounded-md     "
               />

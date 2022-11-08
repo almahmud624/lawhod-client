@@ -3,9 +3,10 @@ import { Rate, Form, Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { DataContext } from "../../Context/DataProvider";
 import moment from "moment";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const PeopleReview = () => {
-  const [user, setUser] = useState(true);
+  const { user } = useContext(AuthContext);
   const [rating, setRating] = useState(0);
   const { reviews, setReviews } = useContext(DataContext);
   const onFinish = (values) => {
@@ -17,7 +18,7 @@ const PeopleReview = () => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-  console.log(reviews);
+  console.log(user);
 
   return (
     <div>
