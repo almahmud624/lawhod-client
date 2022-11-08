@@ -5,6 +5,7 @@ import Blog from "../Pages/Blog/Blog";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
+import LoginSignUp from "../Pages/LoginSignUp/LoginSignUp";
 import MyReviews from "../Pages/MyReviews/MyReviews";
 import PracticeAreaDetails from "../Pages/PracticeAreaDetails/PracticeAreaDetails";
 import PracticeAreas from "../Pages/PracticeAreas/PracticeAreas";

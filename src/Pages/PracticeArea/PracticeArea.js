@@ -8,7 +8,7 @@ const PracticeArea = () => {
         <img
           src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bGF3eWVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
           alt=" random imgee" // pic size 350 x 350 (perfect)
-          className="w-full object-cover object-center rounded-lg shadow-md"
+          className="w-full object-cover object-center rounded-lg shadow-md h-96"
         />
 
         <div className="px-4 w-full absolute -bottom-48 left-[50%] translate-x-[-50%] text-center hover:bottom-0 cursor-pointer transition-all duration-500">
@@ -23,7 +23,7 @@ const PracticeArea = () => {
                 ducimus cupiditate...
               </span>
             </div>
-            <div className="mt-1">
+            <div className="mt-1 mb-5 text-lg">
               $1800
               <span className="text-gray-600 text-sm"> /wk</span>
             </div>
@@ -37,7 +37,7 @@ const PracticeArea = () => {
             </div> */}
             <Link
               to="/practice-details"
-              className="bg-[#624F82] text-[#A3C7D6] px-4 py-2 border border-[#A3C7D6] mt-3 rounded-sm font-semibold"
+              className="bg-[#624F82] text-[#A3C7D6] px-4 py-2 border border-[#A3C7D6] mt-6 rounded-sm font-semibold"
             >
               Know More
             </Link>

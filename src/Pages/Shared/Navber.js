@@ -1,9 +1,22 @@
 import React, { useState } from "react";
+import { Button, Modal } from "antd";
 import { Link } from "react-router-dom";
 import { RadarChartOutlined } from "@ant-design/icons";
+import LoginSignUp from "../LoginSignUp/LoginSignUp";
+import "./Navber.css";
 
 const Navber = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   const navItems = (
     <>
@@ -13,6 +26,9 @@ const Navber = () => {
       <Link to="/my-review">My Reviews</Link>
       <Link to="/blog">Blog</Link>
       <Link to="/contact">Contact Us</Link>
+      <Link>
+        <button onClick={showModal}>Login</button>
+      </Link>
     </>
   );
   return (
@@ -113,6 +129,9 @@ const Navber = () => {
           </div>
         </div>
       </div>
+      <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <LoginSignUp setIsModalOpen={setIsModalOpen} />
+      </Modal>
     </div>
   );
 };
