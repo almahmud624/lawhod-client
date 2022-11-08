@@ -1,1 +1,11 @@
 @import "~antd/dist/antd.css";
+.ant-form-item {
+  margin-bottom: 0 !important;
+}
+.ant-rate-star-first,
+.ant-rate-star {
+  color: rebeccapurple !important;
+}
+.ant-rate-star-half {
+  color: white !important;
+}
