@@ -2,8 +2,12 @@ import React from "react";
 import { Rate } from "antd";
 import BookMeeting from "../BookMeeting/BookMeeting";
 import PeopleReview from "../PeopleReview/PeopleReview";
+import { useParams } from "react-router-dom";
 
 const PracticeAreaDetails = () => {
+  const { id } = useParams();
+  console.log(id);
+
   return (
     <div className="max-w-screen-xl mx-auto my-5 py-5">
       <div className="flex gap-x-20">

@@ -5,19 +5,43 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { Form } from "antd";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const LoginSignUp = ({ setIsModalOpen }) => {
+  const { user, userCreate, userSignIn } = useContext(AuthContext);
   const [isLogin, setIsLogin] = useState(true);
   const [form] = Form.useForm();
   const onFinish = (values) => {
-    console.log("Success:", values);
+    console.log(values);
+    const { email, password } = values;
+    if (!isLogin) {
+      // create new user
+      userCreate(email, password)
+        .then((res) => {
+          console.log(res.user);
+        })
+        .catch((error) => {
+          console.log(error.code);
+        });
+    } else {
+      // sign in with email password
+      userSignIn(email, password)
+        .then((res) => {
+          console.log(res.user);
+        })
+        .catch((error) => {
+          console.log(error.code);
+        });
+    }
+
     form.resetFields();
     setIsModalOpen(false);
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
   return (
     <div>
       <section className="bg-white ">

@@ -4,20 +4,22 @@ import { DataContext } from "../../Context/DataProvider";
 
 const AddPracticeArea = () => {
   const { practiceAreas, setPracticeAreas } = useContext(DataContext);
-
   const [rating, setRating] = useState(0);
   const handleChange = (value) => {
     setRating(value);
   };
+  const [form] = Form.useForm();
   const onFinish = (values) => {
     values["_id"] = parseInt(Math.random() * 5000);
     values["rating"] = rating;
     const newPracticeAreas = [...practiceAreas, values];
     setPracticeAreas(newPracticeAreas);
+    form.resetFields();
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
   return (
     <div className="max-w-screen-lg mx-auto bg-slate-300 p-10 m-10 rounded-sm">
       <h1 className="text-4xl capitalize">Create new preactice area</h1>
@@ -33,6 +35,7 @@ const AddPracticeArea = () => {
         initialValues={{
           remember: true,
         }}
+        form={form}
         layout="vertical"
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
@@ -79,6 +82,23 @@ const AddPracticeArea = () => {
           </div>
           <div>
             <Form.Item
+              label="Short Description"
+              name="shortDescription"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your description!",
+                },
+              ]}
+            >
+              <textarea
+                id="shortDescription"
+                class=" w-full resize-y overflow-auto rounded-lg border border-gray-600 px-4 py-2 shadow-sm focus:border-gray-500 focus:outline-none hover:border-gray-500"
+              ></textarea>
+            </Form.Item>
+          </div>
+          <div>
+            <Form.Item
               label="Description"
               name="description"
               rules={[
@@ -115,7 +135,7 @@ const AddPracticeArea = () => {
           <div>
             <Form.Item
               label="Select Rating"
-              name="fee"
+              name="rating"
               rules={[
                 {
                   required: true,

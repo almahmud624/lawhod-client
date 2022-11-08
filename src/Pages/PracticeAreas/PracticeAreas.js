@@ -13,8 +13,8 @@ const PracticeAreas = () => {
         <h1 className="text-4xl mb-8">Attorney Practice Areas</h1>
         <span>{practiceAreas.length}</span>
         <div className="wrapper grid grid-cols-3  gap-20 ">
-          {practiseAreas?.map((parea) => (
-            <PracticeArea key={Math.random()} />
+          {practiceAreas?.map((practiceArea) => (
+            <PracticeArea key={Math.random()} practiceArea={practiceArea} />
           ))}
         </div>
       </div>
