@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Button, Modal } from "antd";
 import { Link } from "react-router-dom";
 import { RadarChartOutlined } from "@ant-design/icons";
 import LoginSignUp from "../LoginSignUp/LoginSignUp";
 import "./Navber.css";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Navber = () => {
+  const { user, userSignOut } = useContext(AuthContext);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
@@ -26,9 +29,15 @@ const Navber = () => {
       <Link to="/my-review">My Reviews</Link>
       <Link to="/blog">Blog</Link>
       <Link to="/contact">Contact Us</Link>
-      <Link>
-        <button onClick={showModal}>Login</button>
-      </Link>
+      {user?.uid ? (
+        <Link>
+          <button onClick={() => userSignOut()}>Sign Out</button>
+        </Link>
+      ) : (
+        <Link>
+          <button onClick={showModal}>Login</button>
+        </Link>
+      )}
     </>
   );
   return (

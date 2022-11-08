@@ -1,199 +1,77 @@
 import React, { useContext, useState } from "react";
-import { Rate, Form, Avatar } from "antd";
+import { Rate, Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { DataContext } from "../../Context/DataProvider";
-import moment from "moment";
-import { AuthContext } from "../../Context/AuthProvider";
 
 const PeopleReview = () => {
-  const { user } = useContext(AuthContext);
-  const [rating, setRating] = useState(0);
-  const { reviews, setReviews } = useContext(DataContext);
-  const onFinish = (values) => {
-    values["_id"] = parseInt(Math.random() * 5000);
-    values["rating"] = rating;
-    values["date"] = `${moment().format("LL")}, ${moment().format("LT")}`;
-    setReviews([...reviews, values]);
-  };
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
-  console.log(user);
-
+  const { reviews } = useContext(DataContext);
+  const demoreviews = [
+    {
+      reviewersInfo: {
+        name: "Mahmud",
+        photo:
+          "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+        email: "mahmud!@gmail.com",
+        userId: "uV9KQiJUl3f6GUni8pToWeztwUo2",
+      },
+      reviewText:
+        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet",
+      _id: 1750,
+      rating: 4.5,
+      date: "November 8, 2022, 11:36 PM",
+    },
+    {
+      reviewersInfo: {
+        name: "Mahmud",
+        photo:
+          "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+        email: "mahmud!@gmail.com",
+        userId: "uV9KQiJUl3f6GUni8pToWeztwUo2",
+      },
+      reviewText:
+        "This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random or otherwise generated. It may be used to display a sample of fonts or generate text for testing.",
+      _id: 2939,
+      rating: 4.5,
+      date: "November 8, 2022, 11:42 PM",
+    },
+  ];
+  let reviewStore = reviews || demoreviews;
   return (
     <div>
-      <div class="bg-white py-6 ">
-        <div class="mx-auto flex gap-20">
-          <div class="w-1/3 py-4 mb-4">
-            <div className="">
-              <h3 className="text-3xl">Client Reviews</h3>
-              <div class="flex flex-col">
-                <div class="flex">
-                  <div className="rating mb-3">
-                    <Rate allowHalf disabled defaultValue={4.5} className="" />{" "}
+      <div class="bg-white ">
+        <div class="mx-auto flex flex-col ">
+          {reviewStore?.map((review) => (
+            <div key={Math.random()} class="divide-y">
+              <div class="flex flex-col gap-3 py-4 md:py-8">
+                <div className="flex justify-between">
+                  <div className="flex gap-3">
+                    <Avatar src={review?.reviewersInfo?.photo} />
+                    <div>
+                      <span class="block text-sm font-bold">
+                        {review?.reviewersInfo?.name}
+                      </span>
+                      <span class="block text-gray-500 text-sm">
+                        {review?.date}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="rating">
+                    <Rate
+                      allowHalf
+                      disabled
+                      defaultValue={review?.rating}
+                      className=""
+                    />{" "}
                     <span className=" font-semibold text-xl text-green-700">
                       4.5
                     </span>
                   </div>
                 </div>
-                <span class="block text-gray-500 text-sm">
-                  Bases on 27 reviews
-                </span>
+
+                <p class="text-gray-600">{review?.reviewText}</p>
               </div>
             </div>
-            <hr className="mt-8" />
-            <h4 className="text-xl text-gray-600 mt-5">Leave Your Review</h4>
-            {user ? (
-              <>
-                <Form
-                  name="basic"
-                  labelCol={{
-                    span: 8,
-                  }}
-                  wrapperCol={{
-                    span: 20,
-                  }}
-                  initialValues={{
-                    remember: true,
-                  }}
-                  layout="vertical"
-                  onFinish={onFinish}
-                  onFinishFailed={onFinishFailed}
-                  autoComplete="off"
-                >
-                  <div class="grid grid-cols-1 gap-6 mt-4">
-                    <div>
-                      <Form.Item
-                        label="Your Review"
-                        name="message"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please input your message!",
-                          },
-                        ]}
-                      >
-                        <textarea
-                          id="message"
-                          class=" w-full resize-y overflow-auto rounded-lg border border-gray-600 px-4 py-2 shadow-sm focus:border-gray-500 focus:outline-none hover:border-gray-500"
-                        ></textarea>
-                      </Form.Item>
-                      <div className="rating mb-3">
-                        <span>
-                          <Rate allowHalf onChange={setRating} value={rating} />
-                          {rating ? (
-                            <span className="ant-rate-text font-semibold">
-                              {rating}
-                            </span>
-                          ) : (
-                            ""
-                          )}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="flex justify-start">
-                    <button class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
-                      Post
-                    </button>
-                  </div>
-                </Form>
-              </>
-            ) : (
-              <>
-                <div className=" flex justify-between items-center p-3 border-2 border-gray-300 rounded  shadow-sm">
-                  <span className=" text-base text-gray-600 font-semibold">
-                    Please! Login to Add Review
-                  </span>
-                  <button className="px-4 py-1 bg-green-600 font-semibold text-white rounded-sm">
-                    Login
-                  </button>
-                </div>
-              </>
-            )}
-          </div>
-
-          <div class="divide-y w-8/12">
-            <div class="flex flex-col gap-3 py-4 md:py-8">
-              <div className="flex justify-between">
-                <div className="flex gap-3">
-                  <Avatar size="large" icon={<UserOutlined />} />
-                  <div>
-                    <span class="block text-sm font-bold">John McCulling</span>
-                    <span class="block text-gray-500 text-sm">
-                      August 28, 2021
-                    </span>
-                  </div>
-                </div>
-                <div className="rating">
-                  <Rate allowHalf disabled defaultValue={4.5} className="" />{" "}
-                  <span className=" font-semibold text-xl text-green-700">
-                    4.5
-                  </span>
-                </div>
-              </div>
-
-              <p class="text-gray-600">
-                This is a section of some simple filler text, also known as
-                placeholder text. It shares some characteristics of a real
-                written text but is random or otherwise generated. It may be
-                used to display a sample of fonts or generate text for testing.
-              </p>
-            </div>
-            <div class="flex flex-col gap-3 py-4 md:py-8">
-              <div className="flex justify-between">
-                <div className="flex gap-3">
-                  <Avatar size="large" icon={<UserOutlined />} />
-                  <div>
-                    <span class="block text-sm font-bold">John McCulling</span>
-                    <span class="block text-gray-500 text-sm">
-                      August 28, 2021
-                    </span>
-                  </div>
-                </div>
-                <div className="rating">
-                  <Rate allowHalf disabled defaultValue={4.5} className="" />{" "}
-                  <span className=" font-semibold text-xl text-green-700">
-                    4.5
-                  </span>
-                </div>
-              </div>
-
-              <p class="text-gray-600">
-                This is a section of some simple filler text, also known as
-                placeholder text. It shares some characteristics of a real
-                written text but is random or otherwise generated. It may be
-                used to display a sample of fonts or generate text for testing.
-              </p>
-            </div>
-            <div class="flex flex-col gap-3 py-4 md:py-8">
-              <div className="flex justify-between">
-                <div className="flex gap-3">
-                  <Avatar size="large" icon={<UserOutlined />} />
-                  <div>
-                    <span class="block text-sm font-bold">John McCulling</span>
-                    <span class="block text-gray-500 text-sm">
-                      August 28, 2021
-                    </span>
-                  </div>
-                </div>
-                <div className="rating">
-                  <Rate allowHalf disabled defaultValue={4.5} className="" />{" "}
-                  <span className=" font-semibold text-xl text-green-700">
-                    4.5
-                  </span>
-                </div>
-              </div>
-
-              <p class="text-gray-600">
-                This is a section of some simple filler text, also known as
-                placeholder text. It shares some characteristics of a real
-                written text but is random or otherwise generated. It may be
-                used to display a sample of fonts or generate text for testing.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

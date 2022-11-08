@@ -9,17 +9,19 @@ import React, { useState, useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const LoginSignUp = ({ setIsModalOpen }) => {
-  const { user, userCreate, userSignIn } = useContext(AuthContext);
+  const { userProfileUpdate, userCreate, userSignIn } = useContext(AuthContext);
   const [isLogin, setIsLogin] = useState(true);
   const [form] = Form.useForm();
   const onFinish = (values) => {
     console.log(values);
-    const { email, password } = values;
+    const { name, picURL, email, password } = values;
     if (!isLogin) {
       // create new user
       userCreate(email, password)
         .then((res) => {
-          console.log(res.user);
+          userProfileUpdate({ displayName: name, photoURL: picURL })
+            .then((res) => {})
+            .catch((error) => console.log(error.code));
         })
         .catch((error) => {
           console.log(error.code);
