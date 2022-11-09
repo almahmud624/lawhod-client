@@ -6,52 +6,48 @@ const PracticeArea = ({ practiceArea }) => {
 
   return (
     <div>
-      <div className="relative overflow-hidden">
-        <img
-          src={
-            imgURL.endsWith("jpg") || imgURL.endsWith("jpeg")
-              ? imgURL
-              : "https://t4.ftcdn.net/jpg/05/17/53/57/360_F_517535714_DfeMvOjcgC5aNUapI4PMnZ6ZAEc7Dk82.jpg"
-          }
-          alt=" random imgee" // pic size 350 x 350 (perfect)
-          className="w-full object-cover object-center rounded-lg shadow-md "
-        />
+      <Link to="" class="group relative block h-96">
+        <span class="absolute inset-0 border-2 bg-gray-900 border-gray-900"></span>
 
-        <div className="px-4 w-full   cursor-pointer transition-all duration-500">
-          <div className="bg-[#3F3B6C] text-[#A3C7D6] p-6 rounded-lg shadow-lg">
-            <h4 className="mt-1 text-xl font-semibold capitalize leading-tight text-[#A3C7D6]">
+        <div class="relative flex h-full transform items-end border-2 border-gray-900 bg-gray-800 transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2">
+          <div className="bg-gray-800  transition-all duration-500">
+            <img
+              src={imgURL}
+              className="absolute top-0 left-0 object-cover h-full group-hover:mix-blend-overlay transition-all duration-500"
+              alt=""
+            />
+          </div>
+          <div class="px-8 items-center w-full py-2 bg-gray-900 transition-opacity group-hover:absolute group-hover:opacity-0 z-10">
+            <h2 class="mt-4 text-2xl font-medium text-gray-200">
               {practiceName}
-            </h4>
-            <div className="description">
-              <span>
-                {shortDescription.length > 100 ? (
-                  <>{shortDescription.slice(0, 100)}...</>
-                ) : (
-                  shortDescription
-                )}
-              </span>
-            </div>
-            <div className="mt-1 mb-5 text-lg">
+            </h2>
+          </div>
+
+          <div class="absolute p-4 z-30 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100">
+            <h3 class="mt-4 text-2xl font-medium text-gray-100">
+              {practiceName}
+            </h3>
+
+            <p class="my-3 text-gray-300">
+              {shortDescription.length > 100 ? (
+                <>{shortDescription.slice(0, 100)}...</>
+              ) : (
+                shortDescription
+              )}
+            </p>
+            <div className="mb-3 text-lg">
               ${fee}
               <span className="text-gray-600 text-sm"> /wk</span>
             </div>
-            {/* <div className="mt-4">
-              <span className="text-teal-600 text-md font-semibold">
-                4/5 ratings{" "}
-              </span>
-              <span className="text-sm text-gray-600">
-                (based on 234 ratings)
-              </span>
-            </div> */}
             <Link
               to={`/practice-areas/${_id}`}
-              className="bg-[#624F82] text-[#A3C7D6] px-4 py-2 border border-[#A3C7D6] mt-6 rounded-sm font-semibold"
+              class="inline-block border border-gray-300 px-4 py-2 font-semibold text-gray-200 z-50"
             >
-              Know More
+              Practice Details
             </Link>
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

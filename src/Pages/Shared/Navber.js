@@ -46,8 +46,8 @@ const Navber = () => {
       <div class="bg-gray-900">
         <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
           <div class="relative flex items-center justify-between">
-            <a
-              href="/"
+            <Link
+              to="/"
               aria-label="Company"
               title="Company"
               class="inline-flex items-center"
@@ -56,7 +56,7 @@ const Navber = () => {
               <span class="ml-2 text-xl font-bold tracking-wide text-[#916556] font-display">
                 LawHod
               </span>
-            </a>
+            </Link>
             <ul class="flex items-center hidden space-x-8 lg:flex">
               {navItems}
             </ul>

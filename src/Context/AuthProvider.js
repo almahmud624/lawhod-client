@@ -6,6 +6,9 @@ import {
   onAuthStateChanged,
   updateProfile,
   signOut,
+  signInWithPopup,
+  GoogleAuthProvider,
+  FacebookAuthProvider,
 } from "firebase/auth";
 import app from "../Firebase/firebase.init";
 
@@ -13,7 +16,8 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
-
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
   //   create user
   const userCreate = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -26,6 +30,15 @@ const AuthProvider = ({ children }) => {
   const userProfileUpdate = (profile) => {
     return updateProfile(auth.currentUser, profile);
   };
+  // google sign in
+  const userGoogleSignIn = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
+  // facebook sign in
+  const userFacebookSignIn = () => {
+    return signInWithPopup(auth, facebookProvider);
+  };
+
   // user sign out
   const userSignOut = () => {
     return signOut(auth);
@@ -41,6 +54,8 @@ const AuthProvider = ({ children }) => {
     userCreate,
     userSignIn,
     userProfileUpdate,
+    userGoogleSignIn,
+    userFacebookSignIn,
     userSignOut,
   };
   return (

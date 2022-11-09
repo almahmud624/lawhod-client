@@ -137,9 +137,9 @@ const Home = () => {
                         <div class="flex-1">
                           <blockquote class="mt-8 flex-1">
                             <p class="leading-relaxed text-blue-900">
-                              Lorem ipsum dolor sit amet, consectetur
-                              adipisicing elit. Praesentium dolores facere
-                              repellendus, velit quis fugiat.
+                              I have the privilege of working with Seth Lowry on
+                              a complex litigation matter that affects an entire
+                              Georgia community.
                             </p>
                           </blockquote>
                         </div>
@@ -151,9 +151,7 @@ const Home = () => {
                               value={4.5}
                               style={{ fontSize: "1em" }}
                             />
-                            <p class="text-lg font-bold mt-1">
-                              James Khawalski
-                            </p>
+                            <p class="text-lg font-bold mt-1">Rob Cruse</p>
                           </div>
                         </div>
                       </div>
@@ -181,9 +179,9 @@ const Home = () => {
                         <div class="flex-1">
                           <blockquote class="mt-8 flex-1">
                             <p class="leading-relaxed text-blue-900">
-                              Lorem ipsum dolor sit amet, consectetur
-                              adipisicing elit. Praesentium dolores facere
-                              repellendus, velit quis fugiat.
+                              Max consistently demonstrates tremendous poise and
+                              judgment on the highest stakes cases. He is an
+                              extremely talented and gifted advocate,
                             </p>
                           </blockquote>
                         </div>
@@ -195,9 +193,7 @@ const Home = () => {
                               value={4.5}
                               style={{ fontSize: "1em" }}
                             />
-                            <p class="text-lg font-bold mt-1">
-                              James Khawalski
-                            </p>
+                            <p class="text-lg font-bold mt-1">Lerward Pasta</p>
                           </div>
                         </div>
                       </div>
@@ -225,9 +221,10 @@ const Home = () => {
                         <div class="flex-1">
                           <blockquote class="mt-8 flex-1">
                             <p class="leading-relaxed text-blue-900">
-                              Lorem ipsum dolor sit amet, consectetur
-                              adipisicing elit. Praesentium dolores facere
-                              repellendus, velit quis fugiat.
+                              I have watched Drew season as a lawyer over the
+                              course of his career.The most serious and complex
+                              cases require the most talented, creative and
+                              hard-working attorneys.
                             </p>
                           </blockquote>
                         </div>
@@ -236,12 +233,10 @@ const Home = () => {
                           <div class="">
                             <Rate
                               allowHalf
-                              value={4.5}
+                              value={5}
                               style={{ fontSize: "1em" }}
                             />
-                            <p class="text-lg font-bold mt-1">
-                              James Khawalski
-                            </p>
+                            <p class="text-lg font-bold mt-1">Hood Roobos</p>
                           </div>
                         </div>
                       </div>

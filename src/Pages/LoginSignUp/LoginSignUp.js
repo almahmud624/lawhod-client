@@ -7,6 +7,7 @@ import {
 import { Form } from "antd";
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const LoginSignUp = ({ setIsModalOpen }) => {
   const { userProfileUpdate, userCreate, userSignIn } = useContext(AuthContext);
@@ -250,6 +251,7 @@ const LoginSignUp = ({ setIsModalOpen }) => {
             </div>
           </Form>
         </div>
+        <SocialLogin />
         {isLogin ? (
           <>
             <div className="mt-6 text-center">
