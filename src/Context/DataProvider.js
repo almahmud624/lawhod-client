@@ -13,6 +13,9 @@ const DataProvider = ({ children }) => {
         setPracticeAreas(data);
       });
   }, []);
+
+  console.log(practiceAreas);
+
   const dataCenter = {
     practiceAreas,
     setPracticeAreas,

@@ -45,7 +45,7 @@ const AddReview = ({ practiceId }) => {
         console.log(data);
       });
 
-    // setReviews([...reviews, newReview]);
+    setReviews([...reviews, newReview]);
     form.resetFields();
   };
   const onFinishFailed = (errorInfo) => {

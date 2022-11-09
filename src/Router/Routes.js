@@ -17,7 +17,12 @@ export const routes = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/home", element: <Home /> },
       { path: "/practice-areas", element: <PracticeAreas /> },
-      { path: "/practice-areas/:id", element: <PracticeAreaDetails /> },
+      {
+        path: "/practice-areas/:id",
+        element: <PracticeAreaDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/practice-areas/${params.id}`),
+      },
       { path: "/add-practice", element: <AddPracticeArea /> },
       { path: "/my-review", element: <MyReviews /> },
       { path: "/blog", element: <Blog /> },
