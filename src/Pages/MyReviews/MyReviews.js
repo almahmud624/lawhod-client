@@ -12,39 +12,6 @@ import TextArea from "antd/lib/input/TextArea";
 const MyReviews = () => {
   const { reviews, setReviews } = useContext(DataContext);
 
-  const demoreviews = [
-    {
-      reviewersInfo: {
-        name: "Mahmud",
-        photo:
-          "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-        email: "mahmud!@gmail.com",
-        userId: "uV9KQiJUl3f6GUni8pToWeztwUo2",
-      },
-      reviewText:
-        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet",
-      _id: 1750,
-      rating: 4.5,
-      date: "November 8, 2022, 11:36 PM",
-    },
-    {
-      reviewersInfo: {
-        name: "Mahmud",
-        photo:
-          "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-        email: "mahmud!@gmail.com",
-        userId: "uV9KQiJUl3f6GUni8pToWeztwUo2",
-      },
-      reviewText:
-        "This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random or otherwise generated. It may be used to display a sample of fonts or generate text for testing.",
-      _id: 2939,
-      rating: 4.5,
-      date: "November 8, 2022, 11:42 PM",
-    },
-  ];
-
-  const reviewStore = (reviews.length > 0 && reviews) || demoreviews;
-
   const [isEdit, setIsEdit] = useState(false);
   const [editReview, setEditReview] = useState(null);
   const [rating, setRating] = useState(editReview?.rating);
@@ -96,7 +63,7 @@ const MyReviews = () => {
       ),
     },
   ];
-  const data = reviewStore;
+  const data = reviews;
   const handleDelete = (review) => {
     Modal.confirm({
       title: "Are you sure delete this reviews?",
@@ -105,18 +72,27 @@ const MyReviews = () => {
       okType: "danger",
       cancelText: "No",
       onOk() {
-        setReviews(reviews.filter((re) => re._id !== review._id));
-        message.loading({
-          content: "Loading...",
-          key,
-        });
-        setTimeout(() => {
-          message.success({
-            content: "One Review Successfully Deleted",
-            key,
-            duration: 2,
+        // delete review
+        fetch(`http://localhost:4000/reviews/${review?._id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data?.deletedCount > 0) {
+              setReviews(reviews.filter((re) => re._id !== review._id));
+              message.loading({
+                content: "Loading...",
+                key,
+              });
+              setTimeout(() => {
+                message.success({
+                  content: "One Review Successfully Deleted",
+                  key,
+                  duration: 2,
+                });
+              }, 1000);
+            }
           });
-        }, 1000);
       },
       onCancel() {},
     });
@@ -125,7 +101,6 @@ const MyReviews = () => {
     setIsEdit(true);
     setEditReview({ ...review });
   };
-  console.log(editReview?.rating);
 
   return (
     <div className="max-w-screen-lg mx-auto">
@@ -138,6 +113,18 @@ const MyReviews = () => {
           editReview["rating"] = rating;
           const updateReview = reviews.map((review) => {
             if (review._id === editReview._id) {
+              // update review
+              fetch(`http://localhost:4000/reviews/${review?._id}`, {
+                method: "PUT",
+                headers: {
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify(editReview),
+              })
+                .then((res) => res.json())
+                .then((data) => {
+                  console.log(data);
+                });
               return editReview;
             } else {
               return review;
