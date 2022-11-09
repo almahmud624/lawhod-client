@@ -43,14 +43,14 @@ const PracticeAreaDetails = () => {
   );
 
   return (
-    <div className="max-w-screen-xl mx-auto my-5 py-5">
-      <div className="flex gap-x-20">
-        <div className="left-sidebar w-1/3">
+    <div className="max-w-screen-xl mx-auto my-5 py-5 px-4">
+      <div className="flex flex-wrap md:flex-nowrap gap-x-20">
+        <div className="left-sidebar w-full md:w-1/3">
           <div>
             <h3 className="text-4xl">{singlePractice?.practiceName}</h3>
             <hr />
           </div>
-          <div className="book-meeting">
+          <div className="book-meeting hidden md:block">
             <h3 className="text-2xl my-5">Book a Meeting</h3>
             <p>Free legal consultation</p>
             <section class="max-w-4xl mx-auto bg-white rounded-md  ">
@@ -58,7 +58,7 @@ const PracticeAreaDetails = () => {
             </section>
           </div>
         </div>
-        <div className="practice-area-info w-8/12">
+        <div className="practice-area-info w-full mt-5 md:mt-0 md:w-8/12">
           <div className="first-description">
             <p>{singlePractice?.shortDescription}</p>
           </div>
@@ -85,8 +85,8 @@ const PracticeAreaDetails = () => {
         </div>
       </div>
       <hr className="my-8" />
-      <div className="review flex gap-20">
-        <div class="w-1/3 py-4 mb-4">
+      <div className="review flex flex-wrap md:flex-nowrap gap-5 md:gap-20">
+        <div class="w-full md:w-1/3 py-4 mb-4">
           <div className="">
             <h3 className="text-3xl">Client Reviews</h3>
             <div class="flex flex-col">
@@ -108,7 +108,7 @@ const PracticeAreaDetails = () => {
           <AddReview practiceId={singlePractice?._id} />
         </div>
 
-        <div className="w-8/12">
+        <div className="w-full md:w-8/12">
           <PeopleReview />
         </div>
       </div>

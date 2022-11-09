@@ -9,15 +9,15 @@ const Home = () => {
       <Header />
       <PracticeAreas />
       <section id="why-choose" className="max-w-screen-xl px-4 py-10 mx-auto">
-        <div className="flex gap-10">
-          <div className="w-1/3">
+        <div className="flex gap-10 flex-wrap md:flex-nowrap">
+          <div className="w-full md:w-1/3">
             <h3 className="text-5xl leading-tight">
               Why You Can Trust <br />
               LawHod
             </h3>
             <hr className="max-w-[12rem] border-gray-500" />
           </div>
-          <div className="w-8/12 text-lg bg-slate-200 p-6">
+          <div className="w-full md:w-8/12 text-lg bg-slate-200 p-6">
             <p>
               We value justice, honesty and time. We are always at your service
               as we are in charge of your defence. Any detail will be noticed
@@ -48,7 +48,7 @@ const Home = () => {
             <h2 className="text-5xl text-gray-100">Our Case Results</h2>
             <hr className="max-w-[12rem] border-gray-300" />
           </div>
-          <div className="flex gap-10 text-gray-100">
+          <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-10 text-gray-100">
             <div>
               <div className="shadow-lg mb-5 w-96 h-64">
                 <img

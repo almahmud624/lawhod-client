@@ -47,12 +47,12 @@ const PracticeAreas = () => {
     (practiceAreas.length > 0 && practiceAreas) || demopracticeAreas;
   return (
     <div className="my-5 py-20 pb-16 bg-gray-600">
-      <div className="max-w-screen-xl mx-auto">
+      <div className="max-w-screen-xl px-4 mx-auto">
         <div className="mb-10">
           <h2 className="text-5xl text-gray-200">Attorney Practice Areas</h2>
           <hr className="max-w-[12rem] border-gray-400" />
         </div>
-        <div className="wrapper grid grid-cols-3  gap-20 ">
+        <div className="wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-20 ">
           {practiceStore?.map((practiceArea) => (
             <PracticeArea key={Math.random()} practiceArea={practiceArea} />
           ))}
