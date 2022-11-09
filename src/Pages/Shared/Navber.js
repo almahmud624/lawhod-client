@@ -1,10 +1,11 @@
 import React, { useState, useContext } from "react";
-import { Button, Modal } from "antd";
+import { Modal } from "antd";
 import { Link } from "react-router-dom";
 import { RadarChartOutlined } from "@ant-design/icons";
 import LoginSignUp from "../LoginSignUp/LoginSignUp";
 import "./Navber.css";
 import { AuthContext } from "../../Context/AuthProvider";
+import logo from "../../Assets/logo.png";
 
 const Navber = () => {
   const { user, userSignOut } = useContext(AuthContext);
@@ -51,9 +52,9 @@ const Navber = () => {
               title="Company"
               class="inline-flex items-center"
             >
-              <RadarChartOutlined className="text-3xl" />
-              <span class="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                Company
+              <img src={logo} className="w-8 h-8" alt="" />
+              <span class="ml-2 text-xl font-bold tracking-wide text-[#916556] font-display">
+                LawHod
               </span>
             </a>
             <ul class="flex items-center hidden space-x-8 lg:flex">

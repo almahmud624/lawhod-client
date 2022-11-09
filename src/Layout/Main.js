@@ -5,7 +5,7 @@ import Navber from "../Pages/Shared/Navber";
 
 const Main = () => {
   return (
-    <div>
+    <div className="font-display">
       <Navber />
       <Outlet />
       <Footer />
