@@ -2,8 +2,8 @@ import React, { createContext, useState } from "react";
 
 export const DataContext = createContext();
 const DataProvider = ({ children }) => {
-  const [practiceAreas, setPracticeAreas] = useState(null);
-  const [reviews, setReviews] = useState(null);
+  const [practiceAreas, setPracticeAreas] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const dataCenter = {
     practiceAreas,
     setPracticeAreas,

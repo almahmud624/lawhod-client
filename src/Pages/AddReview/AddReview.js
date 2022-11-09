@@ -22,6 +22,7 @@ const AddReview = ({ practiceId }) => {
     values["_id"] = parseInt(Math.random() * 5000);
     values["rating"] = rating;
     values["date"] = `${moment().format("LL")}, ${moment().format("LT")}`;
+    values["practiceId"] = practiceId;
     const newReview = {
       reviewersInfo: {
         name: user.displayName,

@@ -30,7 +30,8 @@ const PracticeAreas = () => {
       _id: 3953,
     },
   ];
-  const practiceStore = practiceAreas || demopracticeAreas;
+  const practiceStore =
+    (practiceAreas.length > 0 && practiceAreas) || demopracticeAreas;
   return (
     <div className="my-10 py-5">
       <div className="max-w-screen-xl mx-auto">

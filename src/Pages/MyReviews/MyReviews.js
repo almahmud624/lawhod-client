@@ -43,6 +43,8 @@ const MyReviews = () => {
     },
   ];
 
+  const reviewStore = (reviews.length > 0 && reviews) || demoreviews;
+
   const [isEdit, setIsEdit] = useState(false);
   const [editReview, setEditReview] = useState(null);
   const [rating, setRating] = useState(editReview?.rating);
@@ -94,7 +96,7 @@ const MyReviews = () => {
       ),
     },
   ];
-  const data = reviews || demoreviews;
+  const data = reviewStore;
   const handleDelete = (review) => {
     Modal.confirm({
       title: "Are you sure delete this reviews?",

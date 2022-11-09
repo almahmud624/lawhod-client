@@ -8,7 +8,11 @@ const PracticeArea = ({ practiceArea }) => {
     <div>
       <div className="relative overflow-hidden">
         <img
-          src={imgURL}
+          src={
+            imgURL.endsWith("jpg") || imgURL.endsWith("jpeg")
+              ? imgURL
+              : "https://t4.ftcdn.net/jpg/05/17/53/57/360_F_517535714_DfeMvOjcgC5aNUapI4PMnZ6ZAEc7Dk82.jpg"
+          }
           alt=" random imgee" // pic size 350 x 350 (perfect)
           className="w-full object-cover object-center rounded-lg shadow-md "
         />

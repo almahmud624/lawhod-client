@@ -35,7 +35,8 @@ const PracticeAreaDetails = () => {
       _id: 3953,
     },
   ];
-  const practiceStore = practiceAreas || demopracticeAreas;
+  const practiceStore =
+    (practiceAreas.length > 0 && practiceAreas) || demopracticeAreas;
   const { id } = useParams();
   const singlePractice = practiceStore?.find(
     (practice) => practice._id === Number(id)

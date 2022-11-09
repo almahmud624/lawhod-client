@@ -35,7 +35,7 @@ const PeopleReview = () => {
       date: "November 8, 2022, 11:42 PM",
     },
   ];
-  let reviewStore = reviews || demoreviews;
+  let reviewStore = (reviews.length > 0 && reviews) || demoreviews;
   return (
     <div>
       <div class="bg-white ">
@@ -63,7 +63,7 @@ const PeopleReview = () => {
                       className=""
                     />{" "}
                     <span className=" font-semibold text-xl text-green-700">
-                      4.5
+                      {review?.rating}
                     </span>
                   </div>
                 </div>
