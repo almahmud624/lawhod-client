@@ -12,6 +12,7 @@ import TextArea from "antd/lib/input/TextArea";
 const MyReviews = () => {
   const { reviews, setReviews } = useContext(DataContext);
 
+  // load review by user email
   const [isEdit, setIsEdit] = useState(false);
   const [editReview, setEditReview] = useState(null);
   const [rating, setRating] = useState(editReview?.rating);
@@ -101,6 +102,7 @@ const MyReviews = () => {
     setIsEdit(true);
     setEditReview({ ...review });
   };
+  console.log(reviews);
 
   return (
     <div className="max-w-screen-lg mx-auto">
@@ -123,7 +125,8 @@ const MyReviews = () => {
               })
                 .then((res) => res.json())
                 .then((data) => {
-                  console.log(data);
+                  if (data.acknowledged) {
+                  }
                 });
               return editReview;
             } else {

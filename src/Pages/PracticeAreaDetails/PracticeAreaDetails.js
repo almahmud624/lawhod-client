@@ -3,12 +3,11 @@ import { DataContext } from "../../Context/DataProvider";
 import { Rate } from "antd";
 import BookMeeting from "../BookMeeting/BookMeeting";
 import PeopleReview from "../PeopleReview/PeopleReview";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import AddReview from "../AddReview/AddReview";
 
 const PracticeAreaDetails = () => {
   const singlePractice = useLoaderData();
-  const { id } = useParams();
 
   return (
     <div className="max-w-screen-xl mx-auto my-5 py-5 px-4">
@@ -77,7 +76,7 @@ const PracticeAreaDetails = () => {
         </div>
 
         <div className="w-full md:w-8/12">
-          <PeopleReview pracId={id} />
+          <PeopleReview pracId={singlePractice?._id} />
         </div>
       </div>
     </div>
