@@ -2,13 +2,6 @@ import { Carousel } from "antd";
 import React from "react";
 
 const Header = () => {
-  const contentStyle = {
-    height: "100vh",
-    color: "#fff",
-    lineHeight: "160px",
-    textAlign: "center",
-    // background: "#364d79",
-  };
   return (
     <div>
       <Carousel autoplay>
