@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Table, Modal, Rate, Input, message } from "antd";
 import { DataContext } from "../../Context/DataProvider";
 import {
@@ -8,11 +8,24 @@ import {
   StarFilled,
 } from "@ant-design/icons";
 import TextArea from "antd/lib/input/TextArea";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const MyReviews = () => {
-  const { reviews, setReviews } = useContext(DataContext);
+  const [reviews, setReviews] = useState([]);
+  const { user } = useContext(AuthContext);
 
   // load review by user email
+  useEffect(() => {
+    fetch(`http://localhost:4000/reviews?email=${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.length < 0) {
+          return;
+        }
+        setReviews(data);
+      });
+  }, [user?.email]);
+
   const [isEdit, setIsEdit] = useState(false);
   const [editReview, setEditReview] = useState(null);
   const [rating, setRating] = useState(editReview?.rating);
