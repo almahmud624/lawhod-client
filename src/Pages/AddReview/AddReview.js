@@ -42,10 +42,9 @@ const AddReview = ({ practiceId }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        setReviews([...reviews, data]);
       });
 
-    setReviews([...reviews, newReview]);
     form.resetFields();
   };
   const onFinishFailed = (errorInfo) => {
@@ -80,7 +79,7 @@ const AddReview = ({ practiceId }) => {
                   rules={[
                     {
                       required: true,
-                      message: "Please input your message!",
+                      message: "Please input your review!",
                     },
                   ]}
                 >

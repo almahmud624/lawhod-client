@@ -14,7 +14,18 @@ const DataProvider = ({ children }) => {
       });
   }, []);
 
-  console.log(practiceAreas);
+  // load reviews data
+  useEffect(() => {
+    fetch("http://localhost:4000/reviews")
+      .then((res) => res.json())
+      .then((data) => {
+        setReviews(data);
+      });
+  }, []);
+
+  if (practiceAreas.length <= 0 || reviews.length <= 0) {
+    return;
+  }
 
   const dataCenter = {
     practiceAreas,
