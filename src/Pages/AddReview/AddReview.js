@@ -19,7 +19,6 @@ const AddReview = ({ practiceId }) => {
   const { reviews, setReviews } = useContext(DataContext);
   const [form] = Form.useForm();
   const onFinish = (values) => {
-    values["_id"] = parseInt(Math.random() * 5000);
     values["rating"] = rating;
     values["date"] = `${moment().format("LL")}, ${moment().format("LT")}`;
     values["practiceId"] = practiceId;
@@ -32,7 +31,21 @@ const AddReview = ({ practiceId }) => {
       },
       ...values,
     };
-    setReviews([...reviews, newReview]);
+
+    // post review on server
+    fetch("http://localhost:4000/reviews", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newReview),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+
+    // setReviews([...reviews, newReview]);
     form.resetFields();
   };
   const onFinishFailed = (errorInfo) => {

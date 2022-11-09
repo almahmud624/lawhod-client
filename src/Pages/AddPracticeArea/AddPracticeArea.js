@@ -10,10 +10,21 @@ const AddPracticeArea = () => {
   };
   const [form] = Form.useForm();
   const onFinish = (values) => {
-    values["_id"] = parseInt(Math.random() * 5000);
     values["rating"] = rating;
-    const newPracticeAreas = [...practiceAreas, values];
-    setPracticeAreas(newPracticeAreas);
+
+    fetch("http://localhost:4000/practice-areas", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(values),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setPracticeAreas([...practiceAreas, data]);
+      });
+
     form.resetFields();
   };
   const onFinishFailed = (errorInfo) => {
