@@ -10,7 +10,7 @@ const PeopleReview = ({ pracId }) => {
 
   return (
     <div>
-      <div class="bg-white ">
+      <div class="bg-white md:pb-20">
         {reviewsFilterById.length > 0 ? (
           <div class="mx-auto flex flex-col gap-5">
             {reviewsFilterById?.map((review) => (

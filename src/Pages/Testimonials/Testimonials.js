@@ -14,13 +14,13 @@ const Testimonials = () => {
               <div class=" sm:px-6 lg:px-8">
                 <div class="flex flex-col items-center">
                   <div className="mb-10 self-start">
-                    <h2 className="md:text-5xl text-2xl text-gray-700">
+                    <h2 className="md:text-5xl text-3xl text-gray-700">
                       What clients say about their experience
                     </h2>
                     <hr className="max-w-[12rem] border-[#4e362846]" />
                   </div>
 
-                  <div class="relative mx-auto mt-10 grid max-w-lg grid-cols-1 gap-6 md:max-w-none md:grid-cols-3 lg:gap-10">
+                  <div class="relative mx-auto mt-10 grid max-w-lg grid-cols-1 gap-16 md:gap-10 md:max-w-none md:grid-cols-3 lg:gap-10">
                     <div class="flex flex-col  border border-[#ddd0c8] text-center shadow-xl shadow-[#ddd0c881]">
                       <div class="relative flex flex-1 flex-col justify-between p-6 lg:py-7 lg:pb-4 lg:px-5">
                         <span class="absolute -left-5 -top-6  bg-white p-3 text-5xl">
