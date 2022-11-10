@@ -43,7 +43,7 @@ const LoginSignUp = ({ setIsModalOpen }) => {
           const currentUser = {
             email: user?.email,
           };
-          fetch("http://localhost:4000/jwt", {
+          fetch("https://lawhod-server.vercel.app/jwt", {
             method: "POST",
             headers: {
               "content-type": "application/json",

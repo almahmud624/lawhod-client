@@ -8,6 +8,7 @@ const PeopleReview = ({ pracId }) => {
   const reviewsFilterById = reviews?.filter(
     (review) => review?.practiceId === pracId
   );
+
   return (
     <div>
       <div class="bg-white ">

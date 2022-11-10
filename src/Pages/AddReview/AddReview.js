@@ -16,7 +16,6 @@ const AddReview = ({ practiceId }) => {
   };
   const [rating, setRating] = useState(0);
   const { reviews, setReviews } = useContext(DataContext);
-  console.log(reviews);
 
   const [form] = Form.useForm();
   const onFinish = (values) => {
@@ -34,7 +33,7 @@ const AddReview = ({ practiceId }) => {
     };
 
     // post review on server
-    fetch("http://localhost:4000/reviews", {
+    fetch("https://lawhod-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -43,13 +42,14 @@ const AddReview = ({ practiceId }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setReviews([...reviews, data]);
+        setReviews([data, ...reviews]);
+        console.log(data);
       });
 
     form.resetFields();
   };
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+    // console.log("Failed:", errorInfo);
   };
   return (
     <div>

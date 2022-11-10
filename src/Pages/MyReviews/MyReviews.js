@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Table, Modal, Rate, Input, message } from "antd";
+import { Table, Modal, Rate, message } from "antd";
 import { DataContext } from "../../Context/DataProvider";
 import {
   DeleteOutlined,
@@ -33,7 +33,7 @@ const MyReviews = () => {
 
   // load review by user email
   useEffect(() => {
-    fetch(`http://localhost:4000/reviews/${user?.email}`, {
+    fetch(`https://lawhod-server.vercel.app/reviews/${user?.email}`, {
       //sent token by headers
       headers: {
         authorization: `Bearer ${localStorage.getItem("lawhod-token")}`,
@@ -116,7 +116,7 @@ const MyReviews = () => {
       cancelText: "No",
       onOk() {
         // delete review
-        fetch(`http://localhost:4000/reviews/${review?._id}`, {
+        fetch(`https://lawhod-server.vercel.app/reviews/${review?._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -162,7 +162,7 @@ const MyReviews = () => {
           const updateReview = reviews.map((review) => {
             if (review._id === editReview._id) {
               // update review
-              fetch(`http://localhost:4000/reviews/${review?._id}`, {
+              fetch(`https://lawhod-server.vercel.app/reviews/${review?._id}`, {
                 method: "PUT",
                 headers: {
                   "content-type": "application/json",

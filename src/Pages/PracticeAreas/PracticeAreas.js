@@ -15,7 +15,7 @@ const PracticeAreas = () => {
   const home = location?.pathname === "/" || location?.pathname === "/home";
 
   useEffect(() => {
-    fetch("http://localhost:4000/practice-areas?size=3")
+    fetch("https://lawhod-server.vercel.app/practice-areas?size=3")
       .then((res) => res.json())
       .then((data) => {
         setLimitedPreactice(data);

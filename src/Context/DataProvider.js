@@ -7,7 +7,7 @@ const DataProvider = ({ children }) => {
 
   // load practiceAreas data
   useEffect(() => {
-    fetch("http://localhost:4000/practice-areas")
+    fetch("https://lawhod-server.vercel.app/practice-areas")
       .then((res) => res.json())
       .then((data) => {
         setPracticeAreas(data);
@@ -16,7 +16,7 @@ const DataProvider = ({ children }) => {
 
   // load reviews data
   useEffect(() => {
-    fetch("http://localhost:4000/reviews")
+    fetch("https://lawhod-server.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);

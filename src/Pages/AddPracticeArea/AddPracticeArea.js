@@ -18,7 +18,7 @@ const AddPracticeArea = () => {
   const onFinish = (values) => {
     values["rating"] = rating;
 
-    fetch("http://localhost:4000/practice-areas", {
+    fetch("https://lawhod-server.vercel.app/practice-areas", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GoogleOutlined, FacebookOutlined } from "@ant-design/icons";
 import { AuthContext } from "../../Context/AuthProvider";
+import { setJwtAuth } from "../../Utilities/jwtAuth";
 
 const SocialLogin = () => {
   const { userGoogleSignIn, userFacebookSignIn } = useContext(AuthContext);
@@ -12,6 +13,7 @@ const SocialLogin = () => {
   const handleGoogleSignIn = () => {
     userGoogleSignIn()
       .then((res) => {
+        setJwtAuth(res.user);
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -22,6 +24,7 @@ const SocialLogin = () => {
   const handleFacebookSignIn = () => {
     userFacebookSignIn()
       .then((res) => {
+        setJwtAuth(res.user);
         navigate(from, { replace: true });
       })
       .catch((error) => {

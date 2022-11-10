@@ -23,7 +23,7 @@ export const routes = createBrowserRouter([
         path: "/practice-areas/:id",
         element: <PracticeAreaDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/practice-areas/${params.id}`),
+          fetch(`https://lawhod-server.vercel.app/practice-areas/${params.id}`),
       },
       { path: "/login", element: <LoginSignUp /> },
       {
