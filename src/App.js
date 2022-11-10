@@ -13,7 +13,7 @@ function App() {
         <>
           <div className="grid place-items-center h-screen">
             <PropagateLoader
-              color="#36d7b7"
+              color="#7c5138"
               loading={spinLoad}
               aria-label="Loading Spinner"
               data-testid="loader"
