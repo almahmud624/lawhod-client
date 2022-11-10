@@ -5,6 +5,7 @@ import BookMeeting from "../BookMeeting/BookMeeting";
 import PeopleReview from "../PeopleReview/PeopleReview";
 import { useLoaderData } from "react-router-dom";
 import AddReview from "../AddReview/AddReview";
+import { PhotoView } from "react-photo-view";
 
 const PracticeAreaDetails = () => {
   const singlePractice = useLoaderData();
@@ -30,7 +31,9 @@ const PracticeAreaDetails = () => {
             <p>{singlePractice?.shortDescription}</p>
           </div>
           <div className="practice-img my-2 border flex items-center justify-center p-2 shadow">
-            <img src={singlePractice?.imgURL} alt="" />
+            <PhotoView src={singlePractice?.imgURL}>
+              <img src={singlePractice?.imgURL} alt="" />
+            </PhotoView>
           </div>
           <div className="final-description">
             <p>{singlePractice?.description}</p>
