@@ -6,15 +6,20 @@ import {
 } from "@ant-design/icons";
 import { Form } from "antd";
 import React, { useState, useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const LoginSignUp = ({ setIsModalOpen }) => {
   const { userProfileUpdate, userCreate, userSignIn } = useContext(AuthContext);
   const [isLogin, setIsLogin] = useState(true);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state?.from?.pathname || "/";
+
   const [form] = Form.useForm();
+
   const onFinish = (values) => {
-    console.log(values);
     const { name, picURL, email, password } = values;
     if (!isLogin) {
       // create new user
@@ -23,6 +28,7 @@ const LoginSignUp = ({ setIsModalOpen }) => {
           userProfileUpdate({ displayName: name, photoURL: picURL })
             .then((res) => {})
             .catch((error) => console.log(error.code));
+          navigate(from, { replace: true });
         })
         .catch((error) => {
           console.log(error.code);
@@ -31,7 +37,7 @@ const LoginSignUp = ({ setIsModalOpen }) => {
       // sign in with email password
       userSignIn(email, password)
         .then((res) => {
-          console.log(res.user);
+          navigate(from, { replace: true });
         })
         .catch((error) => {
           console.log(error.code);
@@ -39,15 +45,21 @@ const LoginSignUp = ({ setIsModalOpen }) => {
     }
 
     form.resetFields();
-    setIsModalOpen(false);
+    if (location?.pathname !== "/login") {
+      setIsModalOpen(false);
+    }
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
 
   return (
-    <div>
-      <section className="bg-white ">
+    <div className="bg-white">
+      <section
+        className={`${
+          location?.pathname === "/login" && "max-w-lg mx-auto py-10"
+        }`}
+      >
         <div className="flex items-center justify-center mt-6">
           <button
             className={`w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2  ${
@@ -55,7 +67,7 @@ const LoginSignUp = ({ setIsModalOpen }) => {
             }`}
             onClick={() => setIsLogin(true)}
           >
-            sign in
+            log in
           </button>
 
           <button
@@ -246,7 +258,7 @@ const LoginSignUp = ({ setIsModalOpen }) => {
 
             <div className="mt-6">
               <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                Sign Up
+                {isLogin ? "Login" : "Sign up"}
               </button>
             </div>
           </Form>

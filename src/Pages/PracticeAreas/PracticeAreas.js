@@ -36,14 +36,16 @@ const PracticeAreas = () => {
             <PracticeArea key={Math.random()} practiceArea={practiceArea} />
           ))}
         </div>
-        <div className="text-center">
-          <Link
-            to="/practice-areas"
-            className="px-10 py-2 text-lg font-semibold text-gray-200 border mt-10 inline-block "
-          >
-            See All
-          </Link>
-        </div>
+        {home && (
+          <div className="text-center">
+            <Link
+              to="/practice-areas"
+              className="px-10 py-2 text-lg font-semibold text-gray-200 border mt-10 inline-block "
+            >
+              See All
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

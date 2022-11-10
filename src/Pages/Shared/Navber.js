@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Modal } from "antd";
-import { Link } from "react-router-dom";
-import { RadarChartOutlined } from "@ant-design/icons";
+import { Link, useLocation } from "react-router-dom";
 import LoginSignUp from "../LoginSignUp/LoginSignUp";
 import "./Navber.css";
 import { AuthContext } from "../../Context/AuthProvider";
@@ -9,11 +8,15 @@ import logo from "../../Assets/logo.png";
 
 const Navber = () => {
   const { user, userSignOut } = useContext(AuthContext);
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const location = useLocation();
   const showModal = () => {
-    setIsModalOpen(true);
+    if (location?.pathname === "/login") {
+      setIsModalOpen(false);
+    } else {
+      setIsModalOpen(true);
+    }
   };
   const handleOk = () => {
     setIsModalOpen(false);

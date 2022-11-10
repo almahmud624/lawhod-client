@@ -1,16 +1,18 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GoogleOutlined, FacebookOutlined } from "@ant-design/icons";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const SocialLogin = () => {
   const { userGoogleSignIn, userFacebookSignIn } = useContext(AuthContext);
-
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state?.from?.pathname || "/";
   // user google sign in
   const handleGoogleSignIn = () => {
     userGoogleSignIn()
       .then((res) => {
-        console.log(res.user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.code);
@@ -20,7 +22,7 @@ const SocialLogin = () => {
   const handleFacebookSignIn = () => {
     userFacebookSignIn()
       .then((res) => {
-        console.log(res.user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.code);
