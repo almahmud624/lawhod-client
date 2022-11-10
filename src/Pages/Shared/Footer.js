@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../Assets/logo.png";
+import useDynamicTitle from "../../Hook/useDynamicTitle";
 
 const Footer = () => {
+  // title show dynamically
+  useDynamicTitle("Footer");
   return (
     <div>
-      <footer class="relative mt-20 bg-gray-900 px-4 pt-14 border-t-2 border-[#8A5949]">
+      <footer class="relative bg-gray-900 px-4 pt-14 border-t-2 border-[#8A5949]">
         <div class="absolute -top-10 left-1/2 h-16 w-16 -translate-x-1/2 rounded-xl border-4 border-[#8A5949] bg-white p-2">
           <img class="h-full object-contain" src={logo} alt="" />
         </div>

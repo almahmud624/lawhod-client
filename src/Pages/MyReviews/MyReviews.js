@@ -9,10 +9,27 @@ import {
 } from "@ant-design/icons";
 import TextArea from "antd/lib/input/TextArea";
 import { AuthContext } from "../../Context/AuthProvider";
+import useDynamicTitle from "../../Hook/useDynamicTitle";
 
 const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
   const { user } = useContext(AuthContext);
+  const { practiceAreas } = useContext(DataContext);
+
+  // title show dynamically
+  useDynamicTitle("My Reviews || Delete & Update Review");
+
+  // filter practice by _id & adding practice name on reviews
+  let reviewsStore = [];
+  reviews.map((item) => {
+    return practiceAreas.map((i) => {
+      if (i?._id === item?.practiceId) {
+        item["practiceName"] = i.practiceName;
+        reviewsStore.push(item);
+      }
+      return item;
+    });
+  });
 
   // load review by user email
   useEffect(() => {
@@ -32,9 +49,9 @@ const MyReviews = () => {
   const key = "updatable";
   const columns = [
     {
-      title: "Id",
-      dataIndex: "_id",
-      key: "_id",
+      title: "Preactice Name",
+      dataIndex: "practiceName",
+      key: "practiceName",
     },
     {
       title: "Review Text",
@@ -77,7 +94,7 @@ const MyReviews = () => {
       ),
     },
   ];
-  const data = reviews;
+  const data = reviewsStore;
   const handleDelete = (review) => {
     Modal.confirm({
       title: "Are you sure delete this reviews?",
@@ -95,7 +112,7 @@ const MyReviews = () => {
             if (data?.deletedCount > 0) {
               setReviews(reviews.filter((re) => re._id !== review._id));
               message.loading({
-                content: "Loading...",
+                content: "Review Deleting...",
                 key,
               });
               setTimeout(() => {
@@ -104,7 +121,7 @@ const MyReviews = () => {
                   key,
                   duration: 2,
                 });
-              }, 1000);
+              }, 2000);
             }
           });
       },
@@ -119,7 +136,11 @@ const MyReviews = () => {
 
   return (
     <div className="max-w-screen-lg mx-auto">
-      <Table columns={columns} dataSource={data} />
+      <Table
+        columns={columns}
+        dataSource={data}
+        style={{ textTransform: "inherit" }}
+      />
       <Modal
         title="Edit Reviews"
         okText="Update"
@@ -139,6 +160,17 @@ const MyReviews = () => {
                 .then((res) => res.json())
                 .then((data) => {
                   if (data.acknowledged) {
+                    message.loading({
+                      content: "Edited review updating",
+                      key,
+                    });
+                    setTimeout(() => {
+                      message.success({
+                        content: "Edited review updated",
+                        key,
+                        duration: 3,
+                      });
+                    }, 2000);
                   }
                 });
               return editReview;

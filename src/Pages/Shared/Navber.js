@@ -29,18 +29,25 @@ const Navber = () => {
     <>
       <Link to="/home">Home</Link>
       <Link to="/practice-areas">Practice Area</Link>
-      <Link to="/add-practice">Add Practice</Link>
-      <Link to="/my-review">My Reviews</Link>
-      <Link to="/blog">Blog</Link>
-      <Link to="/contact">Contact Us</Link>
+
       {user?.uid ? (
-        <Link>
-          <button onClick={() => userSignOut()}>Sign Out</button>
-        </Link>
+        <>
+          <Link to="/add-practice">Add Practice</Link>
+          <Link to="/my-review">My Reviews</Link>
+          <Link to="/blog">Blog</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link>
+            <button onClick={() => userSignOut()}>Sign Out</button>
+          </Link>
+        </>
       ) : (
-        <Link>
-          <button onClick={showModal}>Login</button>
-        </Link>
+        <>
+          <Link to="/blog">Blog</Link>
+          <Link to="/contact">Contact Us</Link>
+          <Link>
+            <button onClick={showModal}>Login</button>
+          </Link>
+        </>
       )}
     </>
   );

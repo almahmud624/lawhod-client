@@ -1,11 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { DataContext } from "../../Context/DataProvider";
+import useDynamicTitle from "../../Hook/useDynamicTitle";
 import PracticeArea from "../PracticeArea/PracticeArea";
 
 const PracticeAreas = () => {
   const { practiceAreas } = useContext(DataContext);
   const [limitedPreactice, setLimitedPreactice] = useState([]);
+
+  // title show dynamically
+  useDynamicTitle("All Practice Areas");
+
   const location = useLocation();
   const home = location?.pathname === "/" || location?.pathname === "/home";
 
@@ -25,7 +30,7 @@ const PracticeAreas = () => {
   }
 
   return (
-    <div className="my-5 py-20 pb-16 bg-gray-600">
+    <div className="py-20 bg-gray-600">
       <div className="max-w-screen-xl px-4 mx-auto">
         <div className="mb-10">
           <h2 className="text-5xl text-gray-200">Attorney Practice Areas</h2>

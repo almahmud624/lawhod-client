@@ -1,10 +1,16 @@
 import React, { useContext, useState } from "react";
-import { Form, Select } from "antd";
+import { Form, Select, message } from "antd";
 import { DataContext } from "../../Context/DataProvider";
+import useDynamicTitle from "../../Hook/useDynamicTitle";
 
 const AddPracticeArea = () => {
   const { practiceAreas, setPracticeAreas } = useContext(DataContext);
   const [rating, setRating] = useState(0);
+  const key = "updatable";
+
+  // title show dynamically
+  useDynamicTitle("Add Reviews || Add new review");
+
   const handleChange = (value) => {
     setRating(value);
   };
@@ -21,8 +27,18 @@ const AddPracticeArea = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setPracticeAreas([...practiceAreas, data]);
+        message.loading({
+          content: "New practice area updateing",
+          key,
+        });
+        setTimeout(() => {
+          message.success({
+            content: "New practice area updated",
+            key,
+            duration: 2,
+          });
+        }, 1000);
       });
 
     form.resetFields();
@@ -32,7 +48,7 @@ const AddPracticeArea = () => {
   };
 
   return (
-    <div className="max-w-screen-lg mx-auto bg-slate-300 p-10 m-10 rounded-sm">
+    <div className="max-w-screen-lg mx-auto bg-slate-300 p-10 m-10 mb-20 rounded-sm">
       <h1 className="text-4xl capitalize">Create new preactice area</h1>
       <hr />
       <Form

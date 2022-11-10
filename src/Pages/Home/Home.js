@@ -1,9 +1,12 @@
 import { Rate } from "antd";
 import React from "react";
+import useDynamicTitle from "../../Hook/useDynamicTitle";
 import Header from "../Header/Header";
 import PracticeAreas from "../PracticeAreas/PracticeAreas";
 
 const Home = () => {
+  // title show dynamically
+  useDynamicTitle("Welcome Home");
   return (
     <div className="mx-auto">
       <Header />
@@ -103,7 +106,7 @@ const Home = () => {
       >
         <div>
           <div>
-            <section class=" text-blue-900 ">
+            <section class="mb-20 text-blue-900 ">
               <div class=" sm:px-6 lg:px-8">
                 <div class="flex flex-col items-center">
                   <div className="mb-10 self-start">

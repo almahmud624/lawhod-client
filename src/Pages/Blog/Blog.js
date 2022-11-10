@@ -1,7 +1,10 @@
 import React from "react";
 import { Code } from "react-feather";
+import useDynamicTitle from "../../Hook/useDynamicTitle";
 
 const Blog = () => {
+  // title show dynamically
+  useDynamicTitle("Blog");
   return (
     <div>
       <section class="bg-gray-900">

@@ -32,7 +32,11 @@ const PracticeAreaDetails = () => {
           </div>
           <div className="practice-img my-2 border flex items-center justify-center p-2 shadow">
             <PhotoView src={singlePractice?.imgURL}>
-              <img src={singlePractice?.imgURL} alt="" />
+              <img
+                src={singlePractice?.imgURL}
+                alt=""
+                className="w-full h-full object-cover"
+              />
             </PhotoView>
           </div>
           <div className="final-description">

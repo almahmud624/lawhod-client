@@ -22,13 +22,13 @@ const PracticeArea = ({ practiceArea }) => {
             </PhotoView>
           </div>
           <div class="px-8 items-center w-full py-2 bg-gray-900 transition-opacity group-hover:absolute group-hover:opacity-0 z-10">
-            <h2 class="mt-4 text-2xl font-medium text-gray-200">
+            <h2 class="mt-4 text-2xl font-medium text-gray-200 capitalize">
               {practiceName}
             </h2>
           </div>
 
           <div class="absolute p-4 z-30 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100">
-            <h3 class="mt-4 text-2xl font-medium text-gray-100">
+            <h3 class="mt-4 text-2xl font-medium text-gray-100 capitalize">
               {practiceName}
             </h3>
 
