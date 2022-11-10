@@ -37,7 +37,27 @@ const LoginSignUp = ({ setIsModalOpen }) => {
       // sign in with email password
       userSignIn(email, password)
         .then((res) => {
-          navigate(from, { replace: true });
+          const user = res.user;
+
+          // get jwt token
+          const currentUser = {
+            email: user?.email,
+          };
+          fetch("http://localhost:4000/jwt", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(currentUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              //set token on local storage
+              localStorage.setItem("lawhod-token", data.token);
+              // redirect user
+              navigate(from, { replace: true });
+            });
         })
         .catch((error) => {
           console.log(error.code);
@@ -57,7 +77,7 @@ const LoginSignUp = ({ setIsModalOpen }) => {
     <div className="bg-white">
       <section
         className={`${
-          location?.pathname === "/login" && "max-w-lg mx-auto py-10"
+          location?.pathname === "/login" && "max-w-lg mx-auto py-10 mb-20"
         }`}
       >
         <div className="flex items-center justify-center mt-6">

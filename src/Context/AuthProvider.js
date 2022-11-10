@@ -46,6 +46,8 @@ const AuthProvider = ({ children }) => {
 
   // user sign out
   const userSignOut = () => {
+    // remove token from local storage
+    localStorage.removeItem("lawhod-token");
     return signOut(auth);
   };
   useEffect(() => {

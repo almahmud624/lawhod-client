@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { DataContext } from "../../Context/DataProvider";
+import React from "react";
 import { Rate } from "antd";
 import BookMeeting from "../BookMeeting/BookMeeting";
 import PeopleReview from "../PeopleReview/PeopleReview";

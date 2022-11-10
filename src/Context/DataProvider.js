@@ -23,9 +23,9 @@ const DataProvider = ({ children }) => {
       });
   }, []);
 
-  if (practiceAreas.length <= 0 || reviews.length <= 0) {
-    return;
-  }
+  // if (!!practiceAreas || !!reviews) {
+  //   return;
+  // }
 
   const dataCenter = {
     practiceAreas,

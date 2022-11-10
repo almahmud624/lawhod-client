@@ -1,3 +1,4 @@
+import { Spin } from "antd";
 import React, { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
@@ -7,7 +8,7 @@ const PrivateRoute = ({ children }) => {
   const location = useLocation();
   console.log(user, loading);
   if (loading) {
-    return `${(<h1>lOADING...</h1>)}`;
+    return <Spin />;
   }
 
   if (user?.uid) {

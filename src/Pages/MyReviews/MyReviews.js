@@ -13,7 +13,7 @@ import useDynamicTitle from "../../Hook/useDynamicTitle";
 
 const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
-  const { user } = useContext(AuthContext);
+  const { user, userSignOut } = useContext(AuthContext);
   const { practiceAreas } = useContext(DataContext);
 
   // title show dynamically
@@ -33,15 +33,27 @@ const MyReviews = () => {
 
   // load review by user email
   useEffect(() => {
-    fetch(`http://localhost:4000/reviews?email=${user?.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:4000/reviews/${user?.email}`, {
+      //sent token by headers
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("lawhod-token")}`,
+      },
+    })
+      .then((res) => {
+        // check user validity
+        if (res.status === 401 || res.status === 403) {
+          // if user id invalid, we logged out user
+          return userSignOut();
+        }
+        return res.json();
+      })
       .then((data) => {
         if (data.length < 0) {
           return;
         }
         setReviews(data);
       });
-  }, [user?.email]);
+  }, [user?.email, userSignOut]);
 
   const [isEdit, setIsEdit] = useState(false);
   const [editReview, setEditReview] = useState(null);

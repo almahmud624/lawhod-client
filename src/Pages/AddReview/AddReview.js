@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Rate, Form, Avatar, Modal } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+import { Rate, Form, Modal } from "antd";
 import { DataContext } from "../../Context/DataProvider";
 import moment from "moment";
 import { AuthContext } from "../../Context/AuthProvider";
@@ -17,6 +16,8 @@ const AddReview = ({ practiceId }) => {
   };
   const [rating, setRating] = useState(0);
   const { reviews, setReviews } = useContext(DataContext);
+  console.log(reviews);
+
   const [form] = Form.useForm();
   const onFinish = (values) => {
     values["rating"] = rating;

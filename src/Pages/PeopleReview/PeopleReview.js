@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Rate } from "antd";
 import { DataContext } from "../../Context/DataProvider";
 import { AlertOutlined } from "@ant-design/icons";
@@ -8,7 +8,6 @@ const PeopleReview = ({ pracId }) => {
   const reviewsFilterById = reviews?.filter(
     (review) => review?.practiceId === pracId
   );
-
   return (
     <div>
       <div class="bg-white ">
