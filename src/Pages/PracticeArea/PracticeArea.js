@@ -39,13 +39,13 @@ const PracticeArea = ({ practiceArea }) => {
                 shortDescription
               )}
             </p>
-            <div className="mb-3 text-lg">
+            <div className="mb-3 text-lg text-gray-200">
               ${fee}
-              <span className="text-gray-600 text-sm"> /wk</span>
+              <span className="text-sm"> /wk</span>
             </div>
             <Link
               to={`/practice-areas/${_id}`}
-              class="inline-block border border-gray-300 px-4 py-2 font-semibold text-gray-200 z-50"
+              class="inline-block border-2 border-[#7c5138] hover:bg-transparent hover:border-[#7c5138] hover:text-white  transition-all  duration-500 capitalize bg-[#7c5138] px-4 py-2 font-semibold text-gray-200 z-50"
             >
               Practice Details
             </Link>

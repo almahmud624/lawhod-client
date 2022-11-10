@@ -4,7 +4,7 @@ import { GoogleOutlined, FacebookOutlined } from "@ant-design/icons";
 import { AuthContext } from "../../Context/AuthProvider";
 import { setJwtAuth } from "../../Utilities/jwtAuth";
 
-const SocialLogin = () => {
+const SocialLogin = ({ setIsModalOpen }) => {
   const { userGoogleSignIn, userFacebookSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -15,6 +15,7 @@ const SocialLogin = () => {
       .then((res) => {
         setJwtAuth(res.user);
         navigate(from, { replace: true });
+        setIsModalOpen(false);
       })
       .catch((error) => {
         console.log(error.code);
@@ -26,6 +27,7 @@ const SocialLogin = () => {
       .then((res) => {
         setJwtAuth(res.user);
         navigate(from, { replace: true });
+        setIsModalOpen(false);
       })
       .catch((error) => {
         console.log(error.code);
@@ -39,7 +41,7 @@ const SocialLogin = () => {
       <div className="flex justify-center gap-10 my-5 ">
         <Link
           onClick={handleGoogleSignIn}
-          className="flex items-center rounded gap-1 bg-gray-600 w-full py-3 justify-center"
+          className="flex items-center rounded gap-1 bg-[#7c5138] w-full py-3 justify-center"
         >
           <GoogleOutlined
             style={{ fontSize: "1.5em", color: "rgb(229, 231, 235)" }}
@@ -48,7 +50,7 @@ const SocialLogin = () => {
         </Link>
         <Link
           onClick={handleFacebookSignIn}
-          className="flex items-center rounded gap-1 bg-gray-600 w-full py-3 justify-center"
+          className="flex items-center rounded gap-1 bg-[#7c5138] w-full py-3 justify-center"
         >
           <FacebookOutlined
             style={{ fontSize: "1.5em", color: "rgb(229, 231, 235)" }}

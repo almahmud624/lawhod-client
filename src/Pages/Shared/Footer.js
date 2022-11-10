@@ -23,10 +23,13 @@ const Footer = () => {
           <h4 className="capitalize text-center text-white text-3xl pb-3">
             Book for a consultation
           </h4>
-          <hr className="max-w-sm mx-auto border-gray-500" />
+          <hr className="max-w-sm mx-auto border-[#4e362846]" />
           <div className="text-center mt-8">
-            <Link className="bg-white text-gray-700 px-4 py-2 font-semibold text-lg inline-block ">
-              Contact Us Now
+            <Link
+              to="/"
+              class="inline-flex h-12 w-1/2  items-center justify-center border-2 border-transparent rounded bg-[#7c5138] md:px-10 text-base px-4 font-medium tracking-wide text-white shadow-md md:mr-4 md:mb-0 md:w-auto focus:outline-none hover:bg-transparent hover:border-[#7c5138] hover:text-white  transition-all duration-500 capitalize"
+            >
+              Contact Us Now{" "}
             </Link>
           </div>
         </div>

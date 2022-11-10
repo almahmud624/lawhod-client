@@ -43,7 +43,6 @@ const AddReview = ({ practiceId }) => {
       .then((res) => res.json())
       .then((data) => {
         setReviews([data, ...reviews]);
-        console.log(data);
       });
 
     form.resetFields();
@@ -105,7 +104,7 @@ const AddReview = ({ practiceId }) => {
             </div>
 
             <div class="flex justify-start">
-              <button class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+              <button class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-[#7c5138] rounded-md hover:bg-[#533625] focus:outline-none focus:bg-gray-600">
                 Post
               </button>
             </div>
@@ -119,7 +118,7 @@ const AddReview = ({ practiceId }) => {
             </span>
             <button
               onClick={showModal}
-              className="px-4 py-1 bg-green-600 font-semibold text-white rounded-sm"
+              className="px-4 py-1 bg-[#7c5138] font-semibold text-white rounded-sm"
             >
               Login
             </button>

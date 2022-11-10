@@ -145,7 +145,7 @@ const LoginSignUp = ({ setIsModalOpen }) => {
                   >
                     <input
                       type="text"
-                      className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                      className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                       placeholder="Your Name"
                     />
                   </Form.Item>
@@ -175,7 +175,7 @@ const LoginSignUp = ({ setIsModalOpen }) => {
                   >
                     <input
                       type="text"
-                      className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                      className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                       placeholder="Your PicURL"
                     />
                   </Form.Item>
@@ -208,7 +208,7 @@ const LoginSignUp = ({ setIsModalOpen }) => {
               >
                 <input
                   type="email"
-                  className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                  className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                   placeholder="Email address"
                 />
               </Form.Item>
@@ -239,51 +239,20 @@ const LoginSignUp = ({ setIsModalOpen }) => {
               >
                 <input
                   type="password"
-                  className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                  className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                   placeholder="Password"
                 />
               </Form.Item>
             </div>
 
-            {/* <div className="relative flex items-center mt-6">
-              <span className="absolute z-30">
-                <LockOutlined
-                  style={{
-                    margin: "0 0.75rem",
-                    height: "1.5rem",
-                    width: "1.5rem",
-                    fontSize: "1.3em",
-                    color: "rgb(107, 114, 128)",
-                  }}
-                />
-              </span>
-
-              <Form.Item
-                className="w-full"
-                name="confirmPassword"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your password!",
-                  },
-                ]}
-              >
-                <input
-                  type="password"
-                  className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11  dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                  placeholder="Confirm Password"
-                />
-              </Form.Item>
-            </div> */}
-
             <div className="mt-6">
-              <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+              <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#7c5138] rounded-md hover:bg-[#7c5138]focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                 {isLogin ? "Login" : "Sign up"}
               </button>
             </div>
           </Form>
         </div>
-        <SocialLogin />
+        <SocialLogin setIsModalOpen={setIsModalOpen} />
         {isLogin ? (
           <>
             <div className="mt-6 text-center">

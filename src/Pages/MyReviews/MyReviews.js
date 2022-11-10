@@ -144,14 +144,16 @@ const MyReviews = () => {
     setIsEdit(true);
     setEditReview({ ...review });
   };
-  console.log(reviews);
 
   return (
-    <div className="max-w-screen-lg mx-auto">
+    <div className="max-w-screen-lg mx-auto py-20 px-4">
       <Table
         columns={columns}
         dataSource={data}
         style={{ textTransform: "inherit" }}
+        scroll={{
+          x: 750,
+        }}
       />
       <Modal
         title="Edit Reviews"

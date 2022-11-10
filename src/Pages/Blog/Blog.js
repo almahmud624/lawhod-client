@@ -13,7 +13,7 @@ const Blog = () => {
             <h2 class="text-4xl font-medium text-white capitalize leading-snug">
               Some Important <br /> QNA <br></br> You should Know
             </h2>
-            <hr className="bg-white/40" />
+            <hr className="bg-white/40 border-[#4e362846]" />
           </div>
 
           <div class="border-white/40 relative border-2 px-4 pt-14 pb-8">

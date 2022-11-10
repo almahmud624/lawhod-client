@@ -11,6 +11,7 @@ const Navber = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
+
   const showModal = () => {
     if (location?.pathname === "/login") {
       setIsModalOpen(false);
@@ -27,24 +28,54 @@ const Navber = () => {
 
   const navItems = (
     <>
-      <Link to="/home">Home</Link>
-      <Link to="/practice-areas">Practice Area</Link>
+      <Link
+        to="/home"
+        className="text-[#91654B] text-base hover:text-gray-200 transition-all duration-300"
+      >
+        Home
+      </Link>
+      <Link
+        to="/practice-areas"
+        className="text-[#91654B] text-base hover:text-gray-200 transition-all duration-300"
+      >
+        Practice Area
+      </Link>
 
       {user?.uid ? (
         <>
-          <Link to="/add-practice">Add Practice</Link>
-          <Link to="/my-review">My Reviews</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/contact">Contact Us</Link>
-          <Link>
+          <Link
+            to="/add-practice"
+            className="text-[#91654B] text-base hover:text-gray-200 transition-all duration-300"
+          >
+            Add Practice
+          </Link>
+          <Link
+            to="/my-review"
+            className="text-[#91654B] text-base hover:text-gray-200 transition-all duration-300"
+          >
+            My Reviews
+          </Link>
+          <Link
+            to="/blog"
+            className="text-[#91654B] text-base hover:text-gray-200 transition-all duration-300"
+          >
+            Blog
+          </Link>
+
+          <Link className="text-[#91654B] text-base hover:text-gray-200 transition-all duration-300">
             <button onClick={() => userSignOut()}>Sign Out</button>
           </Link>
         </>
       ) : (
         <>
-          <Link to="/blog">Blog</Link>
-          <Link to="/contact">Contact Us</Link>
-          <Link>
+          <Link
+            to="/blog"
+            className="text-[#91654B] text-base hover:text-gray-200 transition-all duration-300"
+          >
+            Blog
+          </Link>
+
+          <Link className="text-[#91654B] text-base hover:text-gray-200 transition-all duration-300">
             <button onClick={showModal}>Login</button>
           </Link>
         </>
@@ -63,11 +94,11 @@ const Navber = () => {
               class="inline-flex items-center"
             >
               <img src={logo} className="w-8 h-8" alt="" />
-              <span class="ml-2 text-xl font-bold tracking-wide text-[#916556] font-display">
+              <span class="ml-2 text-xl font-bold tracking-wide text-[#91654B] font-text hover:text-gray-200 transition-all duration-300-basesplay">
                 LawHod
               </span>
             </Link>
-            <ul class="flex items-center hidden space-x-8 lg:flex">
+            <ul class="flex items-center mb-0 hidden space-x-8 lg:flex">
               {navItems}
             </ul>
             <div class="lg:hidden">
@@ -104,7 +135,7 @@ const Navber = () => {
                           class="inline-flex items-center"
                         >
                           <img src={logo} className="w-8 h-8" alt="" />
-                          <span class="ml-2 text-xl font-bold tracking-wide text-[#916556] font-display">
+                          <span class="ml-2 text-xl font-bold tracking-wide text-[#91654B] font-text hover:text-gray-200 transition-all duration-300-basesplay">
                             LawHod
                           </span>
                         </Link>
@@ -135,7 +166,12 @@ const Navber = () => {
           </div>
         </div>
       </div>
-      <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+      <Modal
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={[]}
+      >
         <LoginSignUp setIsModalOpen={setIsModalOpen} />
       </Modal>
     </div>

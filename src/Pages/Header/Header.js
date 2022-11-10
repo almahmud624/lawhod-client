@@ -1,32 +1,40 @@
 import { Carousel } from "antd";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const contentStyle = {
+    height: "160px",
+    color: "#000",
+    lineHeight: "160px",
+    textAlign: "center",
+    background: "#364d79",
+  };
   return (
     <div>
-      <Carousel autoplay>
-        <div>
+      <Carousel autoplay dotPosition="bottom" dots={true} effect="fade">
+        <div style={contentStyle}>
           <div class="">
-            <div class="mx-auto h-full px-4 py-10 sm:max-w-xl md:max-w-full md:px-24 md:py-16 lg:max-w-screen-xl lg:px-8">
+            <div class="mx-auto h-full px-4 py-5 sm:max-w-xl md:max-w-full md:px-24 md:py-16 lg:max-w-screen-xl lg:px-8">
               <div class="flex flex-col items-center justify-between lg:flex-row">
                 <div class="">
                   <div class="lg:max-w-xl lg:pr-5">
-                    <h2 class="mb-6 max-w-lg capitalize text-4xl font-light leading-snug  text-blue-600 sm:text-4xl">
+                    <h2 class="mb-6 max-w-lg capitalize md:text-4xl font-light leading-snug  text-[#91654B] text-xl">
                       Criminal Defence Lawyer
-                      <span class="my-2 text-6xl leading inline-block border-blue-600 font-bold text-blue-600">
+                      <span class="my-2 text-3xl md:text-6xl leading-tight inline-block border-[#91654B] font-bold text-[#91654B]">
                         {" "}
                         REAL JUSTICE FOR REAL PEOPLE{" "}
                       </span>
-                      <hr />
+                      <hr className="border-[#4e362846]" />
                     </h2>
                   </div>
-                  <div class="mt-10 flex flex-col items-center md:flex-row">
-                    <a
-                      href="/"
-                      class="mb-3 inline-flex h-12 w-full items-center justify-center rounded bg-blue-700 px-6 font-medium tracking-wide text-white shadow-md transition duration-200 md:mr-4 md:mb-0 md:w-auto focus:outline-none hover:bg-blue-800 capitalize"
+                  <div class="md:mt-10 mt-2 flex flex-col items-start md:items-center md:flex-row">
+                    <Link
+                      to="/"
+                      class="mb-3 inline-flex h-12  w-1/2 items-center justify-center border-2 border-transparent rounded bg-[#7c5138] md:px-6 px-4 font-medium tracking-wide text-white shadow-md md:mr-4 md:mb-0 md:w-auto focus:outline-none hover:bg-transparent hover:border-[#7c5138] hover:text-[#7c5138] hover:font-semibold transition-all duration-500 capitalize"
                     >
                       How i can help?{" "}
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div class="relative hidden lg:ml-32 lg:block lg:w-1/2">
@@ -65,28 +73,28 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div style={contentStyle}>
           <div class="">
-            <div class="mx-auto h-full px-4 py-10 sm:max-w-xl md:max-w-full md:px-24 md:py-16 lg:max-w-screen-xl lg:px-8">
+            <div class="mx-auto h-full px-4 py-5 sm:max-w-xl md:max-w-full md:px-24 md:py-16 lg:max-w-screen-xl lg:px-8">
               <div class="flex flex-col items-center justify-between lg:flex-row">
                 <div class="">
                   <div class="lg:max-w-xl lg:pr-5">
-                    <h2 class="mb-6 max-w-lg capitalize text-4xl font-light leading-snug  text-blue-600 sm:text-4xl">
+                    <h2 class="mb-6 max-w-lg capitalize md:text-4xl font-light leading-snug  text-[#91654B] text-xl">
                       The right lawyer
-                      <span class="my-2 text-6xl inline-block border-blue-600 font-bold leading text-blue-600">
+                      <span class="my-2 text-3xl md:text-6xl leading-tight inline-block border-[#91654B] font-bold text-[#91654B]">
                         {" "}
                         MAKES ALL THE DIFFERENCE{" "}
                       </span>
                       <hr />
                     </h2>
                   </div>
-                  <div class="mt-10 flex flex-col items-center md:flex-row">
-                    <a
-                      href="/"
-                      class="mb-3 inline-flex h-12 w-full items-center justify-center rounded bg-blue-700 px-6 font-medium tracking-wide text-white shadow-md transition duration-200 md:mr-4 md:mb-0 md:w-auto focus:outline-none hover:bg-blue-800 capitalize"
+                  <div class="md:mt-10 mt-2 flex flex-col items-start md:items-center md:flex-row">
+                    <Link
+                      to="/"
+                      class="mb-3 inline-flex h-12  w-1/2 items-center justify-center border-2 border-transparent rounded bg-[#7c5138] md:px-6 px-4 font-medium tracking-wide text-white shadow-md md:mr-4 md:mb-0 md:w-auto focus:outline-none hover:bg-transparent hover:border-[#7c5138] hover:text-[#7c5138] hover:font-semibold transition-all duration-500 capitalize"
                     >
                       How i can help?{" "}
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div class="relative hidden lg:ml-32 lg:block lg:w-1/2">

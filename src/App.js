@@ -1,4 +1,4 @@
-import React, { useContext, CSSProperties } from "react";
+import React, { useContext } from "react";
 import "./App.css";
 import { RouterProvider } from "react-router-dom";
 import { routes } from "./Router/Routes";

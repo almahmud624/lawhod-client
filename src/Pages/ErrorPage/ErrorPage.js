@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useDynamicTitle from "../../Hook/useDynamicTitle";
 const ErrorPage = () => {
+  // / title show dynamically
+  useDynamicTitle("404 Error");
   return (
     <div>
       <div class="bg-white py-6 sm:py-8 lg:py-12">
