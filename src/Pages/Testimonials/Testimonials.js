@@ -14,7 +14,7 @@ const Testimonials = () => {
               <div class=" sm:px-6 lg:px-8">
                 <div class="flex flex-col items-center">
                   <div className="mb-10 self-start">
-                    <h2 className="text-5xl text-gray-700">
+                    <h2 className="md:text-5xl text-2xl text-gray-700">
                       What clients say about their experience
                     </h2>
                     <hr className="max-w-[12rem] border-[#4e362846]" />

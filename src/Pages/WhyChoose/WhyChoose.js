@@ -6,7 +6,7 @@ const WhyChoose = () => {
       <section id="why-choose" className="max-w-screen-xl px-4 py-10 mx-auto">
         <div className="flex gap-10 flex-wrap md:flex-nowrap">
           <div className="w-full md:w-1/3">
-            <h3 className="text-5xl leading-tight text-gray-700">
+            <h3 className="md:text-5xl text-2xl leading-tight text-gray-700">
               Why You Can Trust <br />
               LawHod
             </h3>

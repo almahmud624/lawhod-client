@@ -48,7 +48,9 @@ const PracticeAreas = () => {
       ) : (
         <div className="max-w-screen-xl px-4 mx-auto">
           <div className="mb-10">
-            <h2 className="text-5xl text-[#ddd0c8]">Attorney Practice Areas</h2>
+            <h2 className="md:text-5xl text-2xl text-[#ddd0c8]">
+              Attorney Practice Areas
+            </h2>
             <hr className="max-w-[12rem] border-gray-500" />
           </div>
           <div className="wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-20 ">
