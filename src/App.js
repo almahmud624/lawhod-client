@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useContext, CSSProperties } from "react";
 import "./App.css";
 import { RouterProvider } from "react-router-dom";
 import { routes } from "./Router/Routes";
+import { DataContext } from "./Context/DataProvider";
+import { PropagateLoader } from "react-spinners";
+
 function App() {
-  return <RouterProvider router={routes}></RouterProvider>;
+  const { spinLoad } = useContext(DataContext);
+  return (
+    <>
+      {spinLoad ? (
+        <>
+          <div className="grid place-items-center h-screen">
+            <PropagateLoader
+              color="#36d7b7"
+              loading={spinLoad}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          </div>
+        </>
+      ) : (
+        <RouterProvider router={routes}></RouterProvider>
+      )}
+    </>
+  );
 }
 
 export default App;

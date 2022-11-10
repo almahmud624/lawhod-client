@@ -3,9 +3,10 @@ import { Link, useLocation } from "react-router-dom";
 import { DataContext } from "../../Context/DataProvider";
 import useDynamicTitle from "../../Hook/useDynamicTitle";
 import PracticeArea from "../PracticeArea/PracticeArea";
+import { PropagateLoader } from "react-spinners";
 
 const PracticeAreas = () => {
-  const { practiceAreas } = useContext(DataContext);
+  const { practiceAreas, spinLoad } = useContext(DataContext);
   const [limitedPreactice, setLimitedPreactice] = useState([]);
 
   // title show dynamically
@@ -31,27 +32,42 @@ const PracticeAreas = () => {
 
   return (
     <div className="py-20 bg-gray-600">
-      <div className="max-w-screen-xl px-4 mx-auto">
-        <div className="mb-10">
-          <h2 className="text-5xl text-gray-200">Attorney Practice Areas</h2>
-          <hr className="max-w-[12rem] border-gray-400" />
-        </div>
-        <div className="wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-20 ">
-          {showPractise?.map((practiceArea) => (
-            <PracticeArea key={Math.random()} practiceArea={practiceArea} />
-          ))}
-        </div>
-        {home && (
-          <div className="text-center">
-            <Link
-              to="/practice-areas"
-              className="px-10 py-2 text-lg font-semibold text-gray-200 border mt-10 inline-block "
-            >
-              See All
-            </Link>
+      {spinLoad ? (
+        <>
+          <>
+            <div className="grid place-items-center h-screen">
+              <PropagateLoader
+                color="#36d7b7"
+                loading={spinLoad}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+            </div>
+          </>
+        </>
+      ) : (
+        <div className="max-w-screen-xl px-4 mx-auto">
+          <div className="mb-10">
+            <h2 className="text-5xl text-gray-200">Attorney Practice Areas</h2>
+            <hr className="max-w-[12rem] border-gray-400" />
           </div>
-        )}
-      </div>
+          <div className="wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-20 ">
+            {showPractise?.map((practiceArea) => (
+              <PracticeArea key={Math.random()} practiceArea={practiceArea} />
+            ))}
+          </div>
+          {home && (
+            <div className="text-center">
+              <Link
+                to="/practice-areas"
+                className="px-10 py-2 text-lg font-semibold text-gray-200 border mt-10 inline-block "
+              >
+                See All
+              </Link>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };

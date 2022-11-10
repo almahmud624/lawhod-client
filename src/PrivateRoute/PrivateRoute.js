@@ -2,13 +2,25 @@ import { Spin } from "antd";
 import React, { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
+import { PropagateLoader } from "react-spinners";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
+
   const location = useLocation();
-  console.log(user, loading);
   if (loading) {
-    return <Spin />;
+    return (
+      <>
+        <div className="grid place-items-center h-96">
+          <PropagateLoader
+            color="#36d7b7"
+            loading={loading}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+      </>
+    );
   }
 
   if (user?.uid) {
