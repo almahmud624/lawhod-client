@@ -71,7 +71,7 @@ const AddReview = ({ practiceId }) => {
             onFinishFailed={onFinishFailed}
             autoComplete="off"
           >
-            <div class="grid grid-cols-1 gap-6 mt-4">
+            <div className="grid grid-cols-1 gap-6 mt-4">
               <div>
                 <Form.Item
                   label="Your Review"
@@ -85,7 +85,7 @@ const AddReview = ({ practiceId }) => {
                 >
                   <textarea
                     id="reviewText"
-                    class=" w-full resize-y overflow-auto rounded-lg border border-gray-600 px-4 py-2 shadow-sm focus:border-gray-500 focus:outline-none hover:border-gray-500"
+                    className=" w-full resize-y overflow-auto rounded-lg border border-gray-600 px-4 py-2 shadow-sm focus:border-gray-500 focus:outline-none hover:border-gray-500"
                   ></textarea>
                 </Form.Item>
                 <div className="rating mb-3">
@@ -103,8 +103,8 @@ const AddReview = ({ practiceId }) => {
               </div>
             </div>
 
-            <div class="flex justify-start">
-              <button class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-[#7c5138] rounded-md hover:bg-[#533625] focus:outline-none focus:bg-gray-600">
+            <div className="flex justify-start">
+              <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-[#7c5138] rounded-md hover:bg-[#533625] focus:outline-none focus:bg-gray-600">
                 Post
               </button>
             </div>
@@ -125,7 +125,7 @@ const AddReview = ({ practiceId }) => {
           </div>
         </>
       )}
-      <Modal open={isModalOpen} onCancel={handleCancel}>
+      <Modal open={isModalOpen} onCancel={handleCancel} footer={[]}>
         <LoginSignUp setIsModalOpen={setIsModalOpen} />
       </Modal>
     </div>

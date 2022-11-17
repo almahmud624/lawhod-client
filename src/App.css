@@ -9,3 +9,6 @@
 .ant-rate-star-half {
   color: #ccc !important;
 }
+.ant-modal-footer {
+  border-color: transparent !important;
+}

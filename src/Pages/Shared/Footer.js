@@ -8,9 +8,9 @@ const Footer = () => {
   useDynamicTitle("Footer");
   return (
     <div>
-      <footer class="relative bg-gray-900 px-4 pt-14 border-t-2 border-[#8A5949]">
-        <div class="absolute -top-10 left-1/2 h-16 w-16 -translate-x-1/2 rounded-xl border-4 border-[#8A5949] bg-white p-2">
-          <img class="h-full object-contain" src={logo} alt="" />
+      <footer className="relative bg-gray-900 px-4 pt-14 border-t-2 border-[#8A5949]">
+        <div className="absolute -top-10 left-1/2 h-16 w-16 -translate-x-1/2 rounded-xl border-4 border-[#8A5949] bg-white p-2">
+          <img className="h-full object-contain" src={logo} alt="" />
         </div>
         <div>
           <p className="font-light text-center text-lg text-white">
@@ -27,13 +27,13 @@ const Footer = () => {
           <div className="text-center mt-8">
             <Link
               to="/"
-              class="inline-flex h-12 w-1/2  items-center justify-center border-2 border-transparent rounded bg-[#7c5138] md:px-10 text-base px-4 font-medium tracking-wide text-white shadow-md md:mr-4 md:mb-0 md:w-auto focus:outline-none hover:bg-transparent hover:border-[#7c5138] hover:text-white  transition-all duration-500 capitalize"
+              className="inline-flex h-12 w-1/2  items-center justify-center border-2 border-transparent rounded bg-[#7c5138] md:px-10 text-base px-4 font-medium tracking-wide text-white shadow-md md:mr-4 md:mb-0 md:w-auto focus:outline-none hover:bg-transparent hover:border-[#7c5138] hover:text-white  transition-all duration-500 capitalize"
             >
               Contact Us Now{" "}
             </Link>
           </div>
         </div>
-        <p class="py-10 text-center text-gray-300">
+        <p className="py-10 text-center text-gray-300">
           © 2022 lawhod | All Rights Reserved
         </p>
       </footer>

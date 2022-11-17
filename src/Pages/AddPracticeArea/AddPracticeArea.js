@@ -69,7 +69,7 @@ const AddPracticeArea = () => {
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
-          <div class="grid grid-cols-1 gap-6 mt-4">
+          <div className="grid grid-cols-1 gap-6 mt-4">
             <div>
               <Form.Item
                 label="Preatice Area Name"
@@ -85,7 +85,7 @@ const AddPracticeArea = () => {
                 <input
                   id="practiceName"
                   type="text"
-                  class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-600 rounded-md     "
+                  className="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-600 rounded-md     "
                 />
               </Form.Item>
             </div>
@@ -104,7 +104,7 @@ const AddPracticeArea = () => {
                 <input
                   id="imgURL"
                   type="text"
-                  class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-600 rounded-md     "
+                  className="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-600 rounded-md     "
                 />
               </Form.Item>
             </div>
@@ -121,7 +121,7 @@ const AddPracticeArea = () => {
               >
                 <textarea
                   id="shortDescription"
-                  class=" w-full resize-y overflow-auto rounded-lg border border-gray-600 px-4 py-2 shadow-sm focus:border-gray-500 focus:outline-none hover:border-gray-500"
+                  className=" w-full resize-y overflow-auto rounded-lg border border-gray-600 px-4 py-2 shadow-sm focus:border-gray-500 focus:outline-none hover:border-gray-500"
                 ></textarea>
               </Form.Item>
             </div>
@@ -138,7 +138,7 @@ const AddPracticeArea = () => {
               >
                 <textarea
                   id="description"
-                  class=" w-full resize-y overflow-auto rounded-lg border border-gray-600 px-4 py-2 shadow-sm focus:border-gray-500 focus:outline-none hover:border-gray-500"
+                  className=" w-full resize-y overflow-auto rounded-lg border border-gray-600 px-4 py-2 shadow-sm focus:border-gray-500 focus:outline-none hover:border-gray-500"
                 ></textarea>
               </Form.Item>
             </div>
@@ -156,7 +156,7 @@ const AddPracticeArea = () => {
                 <input
                   id="fee"
                   type="fee"
-                  class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-600 rounded-md     "
+                  className="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-600 rounded-md     "
                 />
               </Form.Item>
             </div>
@@ -218,8 +218,8 @@ const AddPracticeArea = () => {
             </div>
           </div>
 
-          <div class="flex justify-start">
-            <button class="px-8 mt-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+          <div className="flex justify-start">
+            <button className="px-8 mt-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
               Book
             </button>
           </div>

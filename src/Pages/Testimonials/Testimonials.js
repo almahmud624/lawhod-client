@@ -10,9 +10,9 @@ const Testimonials = () => {
       >
         <div>
           <div>
-            <section class="mb-20 text-gray-600 ">
-              <div class=" sm:px-6 lg:px-8">
-                <div class="flex flex-col items-center">
+            <section className="mb-20 text-gray-600 ">
+              <div className=" sm:px-6 lg:px-8">
+                <div className="flex flex-col items-center">
                   <div className="mb-10 self-start">
                     <h2 className="md:text-5xl text-3xl text-gray-700">
                       What clients say about their experience
@@ -20,10 +20,10 @@ const Testimonials = () => {
                     <hr className="max-w-[12rem] border-[#4e362846]" />
                   </div>
 
-                  <div class="relative mx-auto mt-10 grid max-w-lg grid-cols-1 gap-16 md:gap-10 md:max-w-none md:grid-cols-3 lg:gap-10">
-                    <div class="flex flex-col  border border-[#ddd0c8] text-center shadow-xl shadow-[#ddd0c881]">
-                      <div class="relative flex flex-1 flex-col justify-between p-6 lg:py-7 lg:pb-4 lg:px-5">
-                        <span class="absolute -left-5 -top-6  bg-white p-3 text-5xl">
+                  <div className="relative mx-auto mt-10 grid max-w-lg grid-cols-1 gap-16 md:gap-10 md:max-w-none md:grid-cols-3 lg:gap-10">
+                    <div className="flex flex-col  border border-[#ddd0c8] text-center shadow-xl shadow-[#ddd0c881]">
+                      <div className="relative flex flex-1 flex-col justify-between p-6 lg:py-7 lg:pb-4 lg:px-5">
+                        <span className="absolute -left-5 -top-6  bg-white p-3 text-5xl">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             aria-hidden="true"
@@ -41,9 +41,9 @@ const Testimonials = () => {
                             />
                           </svg>
                         </span>
-                        <div class="flex-1">
-                          <blockquote class="mt-8 flex-1">
-                            <p class="leading-relaxed text-blue-900">
+                        <div className="flex-1">
+                          <blockquote className="mt-8 flex-1">
+                            <p className="leading-relaxed text-blue-900">
                               I have the privilege of working with Seth Lowry on
                               a complex litigation matter that affects an entire
                               Georgia community.
@@ -51,21 +51,21 @@ const Testimonials = () => {
                           </blockquote>
                         </div>
 
-                        <div class="-mx-5 mt-2 px-8">
-                          <div class="">
+                        <div className="-mx-5 mt-2 px-8">
+                          <div className="">
                             <Rate
                               allowHalf
                               value={4.5}
                               style={{ fontSize: "1em" }}
                             />
-                            <p class="text-lg font-bold mt-1">Rob Cruse</p>
+                            <p className="text-lg font-bold mt-1">Rob Cruse</p>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="flex flex-col  border border-[#ddd0c8] text-center shadow-xl shadow-[#ddd0c881]">
-                      <div class="relative flex flex-1 flex-col justify-between p-6 lg:py-7 lg:pb-4 lg:px-5">
-                        <span class="absolute -left-5 -top-6  bg-white p-3 text-5xl">
+                    <div className="flex flex-col  border border-[#ddd0c8] text-center shadow-xl shadow-[#ddd0c881]">
+                      <div className="relative flex flex-1 flex-col justify-between p-6 lg:py-7 lg:pb-4 lg:px-5">
+                        <span className="absolute -left-5 -top-6  bg-white p-3 text-5xl">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             aria-hidden="true"
@@ -83,9 +83,9 @@ const Testimonials = () => {
                             />
                           </svg>
                         </span>
-                        <div class="flex-1">
-                          <blockquote class="mt-8 flex-1">
-                            <p class="leading-relaxed text-blue-900">
+                        <div className="flex-1">
+                          <blockquote className="mt-8 flex-1">
+                            <p className="leading-relaxed text-blue-900">
                               Max consistently demonstrates tremendous poise and
                               judgment on the highest stakes cases. He is an
                               extremely talented and gifted advocate,
@@ -93,21 +93,23 @@ const Testimonials = () => {
                           </blockquote>
                         </div>
 
-                        <div class="-mx-5 mt-2 px-8">
-                          <div class="">
+                        <div className="-mx-5 mt-2 px-8">
+                          <div className="">
                             <Rate
                               allowHalf
                               value={4.5}
                               style={{ fontSize: "1em" }}
                             />
-                            <p class="text-lg font-bold mt-1">Lerward Pasta</p>
+                            <p className="text-lg font-bold mt-1">
+                              Lerward Pasta
+                            </p>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="flex flex-col  border border-[#ddd0c8] text-center shadow-xl shadow-[#ddd0c881]">
-                      <div class="relative flex flex-1 flex-col justify-between p-6 lg:py-7 lg:pb-4 lg:px-5">
-                        <span class="absolute -left-5 -top-6  bg-white p-3 text-5xl">
+                    <div className="flex flex-col  border border-[#ddd0c8] text-center shadow-xl shadow-[#ddd0c881]">
+                      <div className="relative flex flex-1 flex-col justify-between p-6 lg:py-7 lg:pb-4 lg:px-5">
+                        <span className="absolute -left-5 -top-6  bg-white p-3 text-5xl">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             aria-hidden="true"
@@ -125,9 +127,9 @@ const Testimonials = () => {
                             />
                           </svg>
                         </span>
-                        <div class="flex-1">
-                          <blockquote class="mt-8 flex-1">
-                            <p class="leading-relaxed text-blue-900">
+                        <div className="flex-1">
+                          <blockquote className="mt-8 flex-1">
+                            <p className="leading-relaxed text-blue-900">
                               I have watched Drew season as a lawyer over the
                               course of his career.The most serious and complex
                               cases require the most talented, creative and
@@ -136,14 +138,16 @@ const Testimonials = () => {
                           </blockquote>
                         </div>
 
-                        <div class="-mx-5 mt-2 px-8">
-                          <div class="">
+                        <div className="-mx-5 mt-2 px-8">
+                          <div className="">
                             <Rate
                               allowHalf
                               value={5}
                               style={{ fontSize: "1em" }}
                             />
-                            <p class="text-lg font-bold mt-1">Hood Roobos</p>
+                            <p className="text-lg font-bold mt-1">
+                              Hood Roobos
+                            </p>
                           </div>
                         </div>
                       </div>

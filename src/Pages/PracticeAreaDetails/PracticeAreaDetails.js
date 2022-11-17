@@ -25,7 +25,7 @@ const PracticeAreaDetails = () => {
           <div className="book-meeting hidden md:block">
             <h3 className="text-2xl my-5">Book a Meeting</h3>
             <p>Free legal consultation</p>
-            <section class="max-w-4xl mx-auto bg-white rounded-md  ">
+            <section className="max-w-4xl mx-auto bg-white rounded-md  ">
               <BookMeeting />
             </section>
           </div>
@@ -64,11 +64,11 @@ const PracticeAreaDetails = () => {
       </div>
       <hr className="my-8 border-[#4e362846]" />
       <div className="review flex flex-wrap md:flex-nowrap gap-5 md:gap-20">
-        <div class="w-full md:w-1/3 py-4 mb-4">
+        <div className="w-full md:w-1/3 py-4 mb-4">
           <div className="">
             <h3 className="text-3xl text-gra-700">Client Reviews</h3>
-            <div class="flex flex-col">
-              <div class="flex">
+            <div className="flex flex-col">
+              <div className="flex">
                 <div className="rating mb-3">
                   <span
                     style={{ color: "#7c5138" }}
@@ -79,7 +79,7 @@ const PracticeAreaDetails = () => {
                   </span>
                 </div>
               </div>
-              <span class="block text-gray-500 text-sm">
+              <span className="block text-gray-500 text-sm">
                 Bases on 27 reviews
               </span>
             </div>

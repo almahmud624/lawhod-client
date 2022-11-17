@@ -62,7 +62,7 @@ const PracticeAreas = () => {
             <div className="text-center mt-10">
               <Link
                 to="/practice-areas"
-                class="inline-flex h-12 w-1/2  items-center justify-center border-2 border-transparent rounded bg-[#7c5138] md:px-10 text-base px-4 font-medium tracking-wide text-white shadow-md md:mr-4 md:mb-0 md:w-auto focus:outline-none hover:bg-transparent hover:border-[#7c5138] hover:text-white  transition-all duration-500 capitalize"
+                className="inline-flex h-12 w-1/2  items-center justify-center border-2 border-transparent rounded bg-[#7c5138] md:px-10 text-base px-4 font-medium tracking-wide text-white shadow-md md:mr-4 md:mb-0 md:w-auto focus:outline-none hover:bg-transparent hover:border-[#7c5138] hover:text-white  transition-all duration-500 capitalize"
               >
                 See All{" "}
               </Link>
